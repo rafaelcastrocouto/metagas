@@ -23,8 +23,9 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
     
 <nav>
     <?php 
-        $logo = $this->Html->image('logoess_horizontal-azul.svg', ['height' => '50', 'width' => '150', 'alt' => 'ESS']);
-        echo $this->Html->link($logo, $this->getRequest()->getRequestTarget() == '/' ? "http://www.ess.ufrj.br" : '/', ['escape' => false, 'full'=>true]);
+        $logo = $this->Html->image('favicon-32x32.png', ['height' => '32', 'width' => '32', 'alt' => 'Metagas']);
+        echo $this->Html->link($logo . '<h1>Metagas</h1>', '/',['escape' => false, 'full'=>true]); //$this->getRequest()->getRequestTarget() == '/' ? "http://www.metagas.com.br" : '/', ['escape' => false, 'full'=>true]
+
     ?>
 
     <label for="nav-toggler" class="responsive-toggle-label toggle-icon">☰</label>
