@@ -30,7 +30,7 @@ $cakeDescription = $configuracao['descricao'] . ' - ' . $configuracao['instituic
         </title>
         <?= $this->Html->meta('icon') ?>
         
-        <?= $this->Html->css(['normalize.min', 'fonts', 'cake', 'nav', 'mural']) ?>
+        <?= $this->Html->css(['normalize.min', 'fonts', 'cake', 'nav', 'style']) ?>
 
         <?= $this->fetch('meta') ?>
         <?= $this->fetch('css') ?>

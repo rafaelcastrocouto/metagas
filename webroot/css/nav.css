@@ -45,6 +45,19 @@ nav li {
 nav > menu > li > * {
   padding: 0 6px;
 }
+nav h1 {
+  color: white;
+  font-size: 18px;
+  line-height: 50px;
+  display: inline;
+  vertical-align: bottom;
+}
+nav h1:hover {
+  text-decoration: none;
+}
+nav img {
+  margin: 6px 16px;
+}
 nav li a {
   display: inline-block;
 }
@@ -61,15 +74,15 @@ nav label {
 }
 
 nav a,
+nav a:hover,
 nav a:focus,
 nav a:active {
   text-decoration: none;
 }
-
-nav a:hover {
-  text-decoration: underline;
+nav a:hover,
+nav a:focus {
+  opacity: 0.8;
 }
-
 nav .toggle-label {
   cursor: pointer;
   user-select: none;

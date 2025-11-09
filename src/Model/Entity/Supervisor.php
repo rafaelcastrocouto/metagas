@@ -31,7 +31,7 @@ class Supervisor extends Entity
      *
      * @var array
      */
-    protected array $_accessible = [,
+    protected array $_accessible = [
         'user_id' => true,
         'nome' => true,
         'cpf' => true,

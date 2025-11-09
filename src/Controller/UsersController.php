@@ -7,9 +7,6 @@ namespace App\Controller;
 use Authorization\Exception\ForbiddenException;
 use Cake\Event\EventInterface;
 
-
-$default_user_data = ['administrador_id'=>0,'operador_id'=>0,'supervisor_id'=>0];
-
 /**
  * Users Controller
  *
@@ -44,7 +41,7 @@ class UsersController extends AppController {
      */
     public function index()
     {
-        $user_data = $default_user_data;
+        $user_data = ['administrador_id'=>0,'operador_id'=>0,'supervisor_id'=>0];
         $user_session = $this->request->getAttribute('identity');
         if ($user_session) { $user_data = $user_session->getOriginalData(); }
 
@@ -93,7 +90,7 @@ class UsersController extends AppController {
         // authorize all users to add
         $this->Authorization->skipAuthorization();
         
-        $user_data = $default_user_data;
+        $user_data = ['administrador_id'=>0,'operador_id'=>0,'supervisor_id'=>0];
         $user_session = $this->request->getAttribute('identity');
         if ($user_session) { $user_data = $user_session->getOriginalData(); }
 
@@ -133,7 +130,7 @@ class UsersController extends AppController {
     }
     public function edit($id = null)
     {
-        $user_data = $default_user_data;
+        $user_data = ['administrador_id'=>0,'operador_id'=>0,'supervisor_id'=>0];
         $user_session = $this->request->getAttribute('identity');
         if ($user_session) { $user_data = $user_session->getOriginalData(); }
 

@@ -15,7 +15,7 @@
         <table>
             <thead>
                 <tr>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th class="actions"><?= __('Ações') ?></th>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('nome') ?></th>
                 </tr>

@@ -40,12 +40,9 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             <label for="menu-consulta-toggler" class="toggle-label">Consulta <span class="toggle-more">▾</span><span class="toggle-less">◂</span></label>
             
             <menu class="toggle-dropdown">
-                
-
-                <li><?php echo $this->Html->link("Instituições", ['controller' => 'Instituicoes', 'action' => 'index']); ?></li>
-                <li><?php echo $this->Html->link("Professores", ['controller' => 'Professores', 'action' => 'index']); ?></li>
+                <li><?php echo $this->Html->link("Operadores", ['controller' => 'Operadores', 'action' => 'index']); ?></li>
                 <li><?php echo $this->Html->link("Supervisores", ['controller' => 'Supervisores', 'action' => 'index']); ?></li>
-        
+                <li><?php echo $this->Html->link("Clientes", ['controller' => 'Clientes', 'action' => 'index']); ?></li>
             </menu>
         </li>
         
@@ -55,9 +52,9 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                 <label for="menu-admin-toggler" class="toggle-label">Administração <span class="toggle-more">▾</span><span class="toggle-less">◂</span></label>
                 
                 <menu class="toggle-dropdown">
-                    <li><?php echo $this->Html->link("Configurações", '/Configuracoes'); ?></li>
-                    <li><?php echo $this->Html->link("Usuários", '/Users'); ?></li>
-                    <li><?php echo $this->Html->link("Clientes", '/Clientes'); ?></li>
+                    <li><?php echo $this->Html->link("Usuários", ['controller' => 'Users', 'action' => 'index']); ?></li>
+                    <li><?php echo $this->Html->link("Instituições", ['controller' => 'Instituicoes', 'action' => 'index']); ?></li>
+                    <li><?php echo $this->Html->link("Configurações", ['controller' => 'Configuracoes', 'action' => 'index']); ?></li>
                 </menu>
             </li>
         <?php else: ?>

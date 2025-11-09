@@ -71,7 +71,7 @@ $user_session = $this->request->getAttribute('identity');
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['normalize.min', 'fonts', 'cake', 'mural', 'nav']) ?>
+    <?= $this->Html->css(['normalize.min', 'fonts', 'cake', 'style', 'nav']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -113,7 +113,7 @@ $user_session = $this->request->getAttribute('identity');
         <?php if (Configure::read('debug')) : ?>
         <main class="main">
             
-            <div class="message default-cursor default text-center" >
+            <div class="message default-cursor default text-center" onclick="document.querySelector('.content').classList.toggle('hidden')">
                 <p>Atenção: a seção abaixo não irá aparecer se o modo debug estiver desligado.</p>
             </div>
             <div>

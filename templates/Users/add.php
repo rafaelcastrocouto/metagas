@@ -29,7 +29,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             echo $this->Form->control('password', ['label' => 'Senha', 'required' => true, 'autocomplete' => 'new-password', 'id' => 'password' ]);
             echo $this->element('show_password');
         ?>
+        <?= $this->Form->button(__('Adicionar'), ['class' => 'button']) ?>
     </fieldset>
-    <?= $this->Form->button(__('Adicionar'), ['class' => 'button']) ?>
     <?= $this->Form->end() ?>
 </div>
