@@ -1,14 +1,16 @@
-# Mural de estágios
+# Metagas
 
-Mural de estágios da ESS/UFRJ com o Cakephp
+Controle de abastecimento GNV com o Cakephp
 
-## CakePHP Application
+## CakePHP
 
-An applications creted with [CakePHP](https://cakephp.org)
+Uma aplicação criada com [CakePHP](https://cakephp.org)
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+O código do framework pode ser econtrado aqui: [cakephp/cakephp](https://github.com/cakephp/cakephp).
 
-## Installation
+## Instalação
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run [install.sh](https://github.com/rafaelcastrocouto/metagas/raw/main/install.sh).
+1. Download [Composer](https://getcomposer.org/doc/00-intro.md) ou update `composer self-update`.
+2. Execute [install.sh](https://github.com/rafaelcastrocouto/metagas/raw/main/install.sh).
+
+* depende de um banco de dados SQL
