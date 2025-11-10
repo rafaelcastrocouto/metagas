@@ -43,7 +43,9 @@ class OperadoresController extends AppController
      */
     public function view($id = null)
     {
-        $operador = $this->Operadores->get($id);
+        $operador = $this->Operadores->get($id, [
+            'contain' => ['Users'],
+        ]);
 
         $this->set(compact('operador'));
     }
@@ -71,8 +73,7 @@ class OperadoresController extends AppController
             }
             $this->Flash->error(__('The operador could not be saved. Please, try again.'));
         }
-        $instituicoes = $this->Operadores->Instituicoes->find('list');
-        $this->set(compact('operador', 'instituicoes'));
+        $this->set(compact('operador'));
     }
 
     /**
@@ -84,9 +85,7 @@ class OperadoresController extends AppController
      */
     public function edit($id = null)
     {
-        $operador = $this->Operadores->get($id, [
-            'contain' => ['Instituicoes'],
-        ]);
+        $operador = $this->Operadores->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $operador = $this->Operadores->patchEntity($operador, $this->request->getData());
             if ($this->Operadores->save($operador)) {
@@ -96,8 +95,7 @@ class OperadoresController extends AppController
             }
             $this->Flash->error(__('The operador could not be saved. Please, try again.'));
         }
-        $instituicoes = $this->Operadores->Instituicoes->find('list');
-        $this->set(compact('operador', 'instituicoes'));
+        $this->set(compact('operador'));
     }
 
     /**

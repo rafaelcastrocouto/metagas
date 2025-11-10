@@ -34,6 +34,8 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
     <menu class="responsive-toggle-dropdown">
 
         <li><?php echo $this->Html->link("Abastecimentos", ['controller' => 'Abastecimentos', 'action' => 'index']); ?></li>
+        <li><?php echo $this->Html->link("GNV", ['controller' => 'AbastecimentoGNVs', 'action' => 'index']); ?></li>
+        <li><?php echo $this->Html->link("Relatórios", ['controller' => 'Relatorios', 'action' => 'index']); ?></li>
 
         <li class="menu-consulta">
             <input id="menu-consulta-toggler" type="checkbox" class="toggle-input" />
@@ -58,7 +60,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                 </menu>
             </li>
         <?php else: ?>
-            <li><?php echo $this->Html->link('Fale conosco', 'mailto:meta@gas.br'); ?></li>
+            <li><?php echo $this->Html->link('Fale conosco', 'mailto:adm@metagas.com.br'); ?></li>
         <?php endif; ?>
 
         <li class="menu-user">

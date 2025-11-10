@@ -9,24 +9,12 @@ use Cake\ORM\Entity;
  * Instituicao Entity
  *
  * @property int $id
- * @property string $instituicao
- * @property int|null $area_id
- * @property string|null $natureza
+ * @property string $nome
  * @property string $cnpj
  * @property string $email
  * @property string|null $url
- * @property string $endereco
- * @property string $bairro
- * @property string $municipio
- * @property string $cep
- * @property string $telefone
- * @property string|null $beneficio
- * @property string|null $fim_de_semana
- * @property string $local_inscricao
- * @property int $convenio
- * @property \Cake\I18n\FrozenDate|null $expira
- * @property string $seguro
- * @property string $avaliacao
+ * @property string|null $endereco
+ * @property string|null $telefone
  * @property string|null $observacoes
  *
  * @property \App\Model\Entity\Area[] $area
@@ -48,7 +36,6 @@ class Instituicao extends Entity
         'email' => true,
         'url' => true,
         'endereco' => true,
-        'cep' => true,
         'telefone' => true,
         'observacoes' => true
     ];

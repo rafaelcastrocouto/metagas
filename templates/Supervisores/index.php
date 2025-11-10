@@ -21,17 +21,17 @@
                     <th><?= $this->Paginator->sort('nome') ?></th>
                     <th><?= $this->Paginator->sort('cpf') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
-                    <th><?= $this->Paginator->sort('escola') ?></th>
-                    <th><?= $this->Paginator->sort('ano_formatura') ?></th>
+                    <th><?= $this->Paginator->sort('celular') ?></th>
+                    <th><?= $this->Paginator->sort('observacoes') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($supervisores as $supervisor): ?>
                 <tr>
                     <td class="actions">
-                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $supervisor->id]) ?>
-                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $supervisor->id]) ?>
-                        <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $supervisor->id], ['confirm' => __('Are you sure you want to delete {0}?', $supervisor->nome)]) ?>
+                        <?= $this->Html->link(__('🔍'), ['action' => 'view', $supervisor->id]) ?>
+                        <?= $this->Html->link(__('✏️'), ['action' => 'edit', $supervisor->id]) ?>
+                        <?= $this->Form->postLink(__('❌'), ['action' => 'delete', $supervisor->id], ['confirm' => __('Tem certeza que deseja deletar o supervisor {0}?', $supervisor->nome)]) ?>
                     </td>
                     <td><?= $this->Html->link((string)$supervisor->id, ['action' => 'view', $supervisor->id]) ?></td>
                     <td><?= $this->Html->link($supervisor->nome, ['action' => 'view', $supervisor->id]) ?></td>

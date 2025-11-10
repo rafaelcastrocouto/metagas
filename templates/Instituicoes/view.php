@@ -11,7 +11,7 @@
                 <div class="nav">
                     <?= $this->Html->link(__('Listar Instituições'), ['action' => 'index'], ['class' => 'button']) ?>
                     <?= $this->Html->link(__('Editar Instituição'), ['action' => 'edit', $instituicao->id], ['class' => 'button']) ?>
-                    <?= $this->Form->postLink(__('Deletar Instituição'), ['action' => 'delete', $instituicao->id], ['confirm' => __('Are you sure you want to delete {0}?', $instituicao->instituicao), 'class' => 'button']) ?>
+                    <?= $this->Form->postLink(__('Deletar Instituição'), ['action' => 'delete', $instituicao->id], ['confirm' => __('Tem certeza que deseja deletar a instituição {0}?', $instituicao->nome), 'class' => 'button']) ?>
                     <?= $this->Html->link(__('Nova Instituição'), ['action' => 'add'], ['class' => 'button']) ?>
                 </div>
             </aside>
@@ -35,11 +35,11 @@
                 </tr>
                 <tr>
                     <th><?= __('Url') ?></th>
-                    <td><?= $instituicao->url ? $this->Html->link($instituicao->url) : '' ?></td>
+                    <td><?= $instituicao->url ? $this->Html->link($instituicao->url, $instituicao->url, ['target' => '_blank', '_full' => true]) : '' ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Endereco') ?></th>
-                    <td><?= h($instituicao->endereco . ' - ' . $instituicao->bairro . ' - ' .  $instituicao->municipio . ' - ' . $instituicao->cep ) ?></td>
+                    <td><?= h($instituicao->endereco) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Telefone') ?></th>

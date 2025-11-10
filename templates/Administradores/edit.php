@@ -23,9 +23,6 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             <fieldset>
                 <h3><?= __('Editando administrador_' . $administrador->id) ?></h3>
                 <?php
-                    if ($user_data['administrador_id']):
-                       echo $this->Form->control('user_id', ['type' => 'number']); 
-                    endif;
                     echo $this->Form->control('nome');
                 ?>
             </fieldset>

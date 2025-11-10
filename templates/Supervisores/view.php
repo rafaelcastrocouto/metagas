@@ -11,7 +11,7 @@
                 <div class="nav">
                     <?= $this->Html->link(__('Listar Supervisores'), ['action' => 'index'], ['class' => 'button']) ?>
                     <?= $this->Html->link(__('Editar Supervisor'), ['action' => 'edit', $supervisor->id], ['class' => 'button']) ?>
-                    <?= $this->Form->postLink(__('Deletar Supervisor'), ['action' => 'delete', $supervisor->id], ['confirm' => __('Are you sure you want to delete {0}?', $supervisor->nome), 'class' => 'button']) ?>
+                    <?= $this->Form->postLink(__('Deletar Supervisor'), ['action' => 'delete', $supervisor->id], ['confirm' => __('Tem certeza que deseja deletar o supervisor {0}?', $supervisor->nome), 'class' => 'button']) ?>
                     <?= $this->Html->link(__('Novo Supervisor'), ['action' => 'add'], ['class' => 'button']) ?>
                 </div>
             </aside>
@@ -37,10 +37,11 @@
                     <th><?= __('Observações') ?></th>
                     <td><?= h($supervisor->observacoes) ?></td>
                 </tr>
+            </table>
             
             <?php if (!empty($supervisor->user)) : ?>
             <div class="related">
-                <h4><?= __('User') ?></h4>
+                <h4><?= __('Usuário') ?></h4>
                 <div class="table_wrap">
                     <table>
                         <tr>
@@ -50,11 +51,12 @@
                         </tr>
                         <tr>
                             <td class="actions">
-                                <?= $this->Html->link(__('Ver'), ['controller' => 'Users', 'action' => 'view', $supervisor->user->id]) ?>
-                                <?= $this->Html->link(__('Editar'), ['controller' => 'Users', 'action' => 'edit', $supervisor->user->id]) ?>
-                                <?= $this->Form->postLink(__('Deletar'), ['controller' => 'Users', 'action' => 'delete', $supervisor->user->id], ['confirm' => __('Are you sure you want to delete user_{0}?', $supervisor->user->id)]) ?>
+                                <?= $this->Html->link(__('🔍'), ['controller' => 'Users', 'action' => 'view', $supervisor->user->id]) ?>
+                                <?= $this->Html->link(__('✏️'), ['controller' => 'Users', 'action' => 'edit', $supervisor->user->id]) ?>
+                                <?= $this->Html->link(__('🔑'), ['controller' => 'Users', 'action' => 'editpassword', $supervisor->user->id]) ?>
+                                <?= $this->Form->postLink(__('❌'), ['controller' => 'Users', 'action' => 'delete', $supervisor->user->id], ['confirm' => __('Tem certeza que deseja deletar o usuário {0}?', $supervisor->user->email)]) ?>
                             </td>
-                            <td><?= h($supervisor->user->id) ?></td>
+                            <td><?= $this->Html->link((string)$supervisor->user->id, ['controller' => 'Users', 'action' => 'view', $supervisor->user->id]) ?></td>
                             <td><?= $supervisor->user->email ? $this->Text->autoLinkEmails($supervisor->user->email) : '' ?></td>
                         </tr>
                     </table>

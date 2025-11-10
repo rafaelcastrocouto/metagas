@@ -9,12 +9,12 @@
         <div class="instituicoes form content">
             <aside>
                 <div class="nav">
-                    <?= $this->Html->link(__('Listar Instituicoes'), ['action' => 'index'], ['class' => 'button']) ?>
+                    <?= $this->Html->link(__('Listar Instituições'), ['action' => 'index'], ['class' => 'button']) ?>
                 </div>
             </aside>
             <?= $this->Form->create($instituicao) ?>
             <fieldset>
-                <h3><?= __('Adicionar Instituicao') ?></h3>
+                <h3><?= __('Adicionar Instituição') ?></h3>
                 <?php
                     echo $this->Form->control('nome');
                     echo $this->Form->control('cnpj');

@@ -49,9 +49,7 @@ class InstituicoesController extends AppController
      */
     public function view($id = null)
     {
-        //ini_set('memory_limit', '2048M');
         $instituicao = $this->Instituicoes->get($id);
-
         $this->set(compact('instituicao'));
     }
 
@@ -72,9 +70,7 @@ class InstituicoesController extends AppController
             }
             $this->Flash->error(__('The instituicao could not be saved. Please, try again.'));
         }
-        $areas = $this->Instituicoes->Areas->find('list');
-        $supervisores = $this->Instituicoes->Supervisores->find('list');
-        $this->set(compact('instituicao', 'areas', 'supervisores'));
+        $this->set(compact('instituicao'));
     }
 
     /**
@@ -86,9 +82,7 @@ class InstituicoesController extends AppController
      */
     public function edit($id = null)
     {
-        $instituicao = $this->Instituicoes->get($id, [
-            'contain' => ['Supervisores'],
-        ]);
+        $instituicao = $this->Instituicoes->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $instituicao = $this->Instituicoes->patchEntity($instituicao, $this->request->getData());
             if ($this->Instituicoes->save($instituicao)) {
@@ -98,9 +92,7 @@ class InstituicoesController extends AppController
             }
             $this->Flash->error(__('The instituicao could not be saved. Please, try again.'));
         }
-        $areas = $this->Instituicoes->Areas->find('list');
-        $supervisores = $this->Instituicoes->Supervisores->find('list');
-        $this->set(compact('instituicao', 'areas', 'supervisores'));
+        $this->set(compact('instituicao'));
     }
 
     /**

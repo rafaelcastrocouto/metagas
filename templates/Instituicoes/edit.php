@@ -13,13 +13,13 @@
                     <?= $this->Form->postLink(
                         __('Deletar'),
                         ['action' => 'delete', $instituicao->id],
-                        ['confirm' => __('Are you sure you want to delete {0}?', $instituicao->instituicao), 'class' => 'button']
+                        ['confirm' => __('Tem certeza que deseja deletar a instituição {0}?', $instituicao->nome), 'class' => 'button']
                     ) ?>
                 </div>
             </aside>
             <?= $this->Form->create($instituicao) ?>
             <fieldset>
-                <h3><?= __('Editando instituição_') . $instituicao->id ?></h3>
+                <h3><?= __('Editando instituição ') . $instituicao->nome ?></h3>
                 <?php
                     echo $this->Form->control('nome');
                     echo $this->Form->control('cnpj');

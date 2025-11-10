@@ -19,7 +19,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     <?= $this->Form->postLink(
                         __('Deletar'),
                         ['action' => 'delete', $supervisor->id],
-                        ['confirm' => __('Are you sure you want to delete {0}?', $supervisor->nome), 'class' => 'button']
+                        ['confirm' => __('Tem certeza que deseja deletar o supervisor {0}?', $supervisor->nome), 'class' => 'button']
                     ) ?>
                 </div>
             </aside>

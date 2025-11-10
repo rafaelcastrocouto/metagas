@@ -42,7 +42,8 @@ body .button:active {
     cursor: pointer;
     opacity: 0.8;
 }
-.hidden {
+
+.input:has([hidden]), .hidden {
     display: none;
 }
 .default-cursor {

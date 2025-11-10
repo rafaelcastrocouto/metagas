@@ -29,7 +29,7 @@ class SupervisoresController extends AppController
     public function index()
     {
         $supervisores = $this->paginate($this->Supervisores->find('all', [
-            'contain' => ['Users'],
+            'contain' => ['Users']
         ]));
         $this->set(compact('supervisores'));
     }
@@ -43,7 +43,9 @@ class SupervisoresController extends AppController
      */
     public function view($id = null)
     {
-        $supervisor = $this->Supervisores->get($id);
+        $supervisor = $this->Supervisores->get($id, [
+            'contain' => ['Users']
+        ]);
 
         $this->set(compact('supervisor'));
     }
@@ -71,8 +73,7 @@ class SupervisoresController extends AppController
             }
             $this->Flash->error(__('The supervisor could not be saved. Please, try again.'));
         }
-        $instituicoes = $this->Supervisores->Instituicoes->find('list');
-        $this->set(compact('supervisor', 'instituicoes'));
+        $this->set(compact('supervisor'));
     }
 
     /**
@@ -84,9 +85,7 @@ class SupervisoresController extends AppController
      */
     public function edit($id = null)
     {
-        $supervisor = $this->Supervisores->get($id, [
-            'contain' => ['Instituicoes'],
-        ]);
+        $supervisor = $this->Supervisores->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $supervisor = $this->Supervisores->patchEntity($supervisor, $this->request->getData());
             if ($this->Supervisores->save($supervisor)) {
@@ -96,8 +95,7 @@ class SupervisoresController extends AppController
             }
             $this->Flash->error(__('The supervisor could not be saved. Please, try again.'));
         }
-        $instituicoes = $this->Supervisores->Instituicoes->find('list');
-        $this->set(compact('supervisor', 'instituicoes'));
+        $this->set(compact('supervisor'));
     }
 
     /**

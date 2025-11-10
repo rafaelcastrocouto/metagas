@@ -36,7 +36,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     <th><?= $this->Paginator->sort('cnpj') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('url') ?></th>
-                    <th><?= $this->Paginator->sort('Observações') ?></th>
+                    <th><?= $this->Paginator->sort('observacoes') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -44,9 +44,9 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                 <tr>
 		    <?php if ($user_data['administrador_id']): ?>
                         <td class="actions">
-                            <?= $this->Html->link(__('Ver'), ['action' => 'view', $instituicao->id]) ?>
-                            <?= $this->Html->link(__('Editar'), ['action' => 'edit', $instituicao->id]) ?>
-                            <?= $this->Form->postLink(__('Deletar'), ['action' => 'delete', $instituicao->id], ['confirm' => __('Are you sure you want to delete # {0}?', $instituicao->id)]) ?>
+                            <?= $this->Html->link(__('🔍'), ['action' => 'view', $instituicao->id]) ?>
+                            <?= $this->Html->link(__('✏️'), ['action' => 'edit', $instituicao->id]) ?>
+                            <?= $this->Form->postLink(__('❌'), ['action' => 'delete', $instituicao->id], ['confirm' => __('Tem certeza que deseja deletar a instituição {0}?', $instituicao->nome)]) ?>
                         </td>
                         <td><?= $this->Html->link((string)$instituicao->id, ['action' => 'view', $instituicao->id]) ?></td>                    
                     <?php endif; ?>

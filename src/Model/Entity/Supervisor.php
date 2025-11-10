@@ -11,14 +11,12 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $user_id
  * @property string $nome
- * @property string $cpf
- * @property string $endereco
- * @property string $celular
- * @property string $observacoes
+ * @property string|null $cpf
+ * @property string|null $endereco
+ * @property string|null $celular
+ * @property string|null $observacoes
  *
- * @property \App\Model\Entity\Estagiario[] $estagiarios
  * @property \App\Model\Entity\User[] $users
- * @property \App\Model\Entity\Instituicao[] $instituicao
  */
 class Supervisor extends Entity
 {

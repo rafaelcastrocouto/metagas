@@ -28,9 +28,8 @@ class ClientesController extends AppController
      */
     public function index()
     {
-        $clientes = $this->paginate($this->Clientes->find('all', [
-            'contain' => ['Users'],
-        ]));
+        $clientes = $this->paginate($this->Clientes->find('all'));
+        
         $this->set(compact('clientes'));
     }
 
@@ -71,8 +70,7 @@ class ClientesController extends AppController
             }
             $this->Flash->error(__('The cliente could not be saved. Please, try again.'));
         }
-        $instituicoes = $this->Clientes->Instituicoes->find('list');
-        $this->set(compact('cliente', 'instituicoes'));
+        $this->set(compact('cliente'));
     }
 
     /**
@@ -84,9 +82,7 @@ class ClientesController extends AppController
      */
     public function edit($id = null)
     {
-        $cliente = $this->Clientes->get($id, [
-            'contain' => ['Instituicoes'],
-        ]);
+        $cliente = $this->Clientes->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $cliente = $this->Clientes->patchEntity($cliente, $this->request->getData());
             if ($this->Clientes->save($cliente)) {
@@ -96,8 +92,7 @@ class ClientesController extends AppController
             }
             $this->Flash->error(__('The cliente could not be saved. Please, try again.'));
         }
-        $instituicoes = $this->Clientes->Instituicoes->find('list');
-        $this->set(compact('cliente', 'instituicoes'));
+        $this->set(compact('cliente'));
     }
 
     /**

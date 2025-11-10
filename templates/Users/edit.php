@@ -19,7 +19,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             if ($user_data['administrador_id']): 
                 echo $this->Html->link(__('Listar Usuários'), ['action' => 'index'], ['class' => 'button']);
                 echo $this->Form->postLink( __('Deletar'), ['action' => 'delete', $user->id],
-                    ['confirm' => __('Are you sure you want to delete user_{0}?', $user->email), 'class' => 'button']
+                    ['confirm' => __('Tem certeza que deseja deletar o usuário {0}?', $user->email), 'class' => 'button']
                 );
             endif; 
             ?>
@@ -27,7 +27,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
     </aside>
     <?= $this->Form->create($user) ?>
     <fieldset>
-        <h3><?= __('Editando user_') . $user->id ?></h3>
+        <h3><?= __('Editando usuário ') . $user->email ?></h3>
         <?php
             echo $this->Form->control('email', ['type' => 'email', 'label' => 'Novo email']);
         ?>

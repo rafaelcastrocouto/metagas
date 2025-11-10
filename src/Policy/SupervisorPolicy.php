@@ -24,9 +24,13 @@ class SupervisorPolicy implements BeforePolicyInterface
     return null;
   }
   
-  public function canAdd()
+  public function canAdd(IdentityInterface $userSession, Supervisor $supervisorData)
   {
+    if ($this->sameUser($userSession, $supervisorData)) {
       return new Result(true);
+    } else {
+      return new Result(false, 'Erro: operador edit policy not authorized');
+    }
   }
   
   public function canView()
@@ -34,7 +38,7 @@ class SupervisorPolicy implements BeforePolicyInterface
     return new Result(true);
   }
   
-  public function canEdit(IdentityInterface $userSession, Supervisor $userData)
+  public function canEdit(IdentityInterface $userSession, Supervisor $supervisorData)
   {
     if ($this->sameUser($userSession, $supervisorData)) {
       return new Result(true);
