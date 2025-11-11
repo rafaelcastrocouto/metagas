@@ -43,30 +43,6 @@
                 </tr>
             </table>
             
-            <?php if (!empty($cliente->user)) : ?>
-            <div class="related">
-                <h4><?= __('User') ?></h4>
-                <div class="table_wrap">
-                    <table>
-                        <tr>
-                            <th class="actions"><?= __('Actions') ?></th>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('Email') ?></th>
-                        </tr>
-                        <tr>
-                            <td class="actions">
-                                <?= $this->Html->link(__('Ver'), ['controller' => 'Users', 'action' => 'view', $cliente->user->id]) ?>
-                                <?= $this->Html->link(__('Editar'), ['controller' => 'Users', 'action' => 'edit', $cliente->user->id]) ?>
-                                <?= $this->Form->postLink(__('Deletar'), ['controller' => 'Users', 'action' => 'delete', $cliente->user->id], ['confirm' => __('Tem certeza que deseja deletar o usuário {0}?', $cliente->user->email)]) ?>
-                            </td>
-                            <td><?= h($cliente->user->id) ?></td>
-                            <td><?= $cliente->user->email ? $this->Text->autoLinkEmails($cliente->user->email) : '' ?></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <?php endif; ?>
-            
         </div>            
     </div>
 </div>

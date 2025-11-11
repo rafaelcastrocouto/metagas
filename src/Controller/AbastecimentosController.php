@@ -28,9 +28,7 @@ class AbastecimentosController extends AppController
      */
     public function index()
     {
-        $abastecimentos = $this->paginate($this->Abastecimentos->find('all', [
-            'contain' => ['Users'],
-        ]));
+        $abastecimentos = $this->paginate($this->Abastecimentos->find('all')->contain(['Users']));
         $this->set(compact('abastecimentos'));
     }
 
@@ -43,7 +41,7 @@ class AbastecimentosController extends AppController
      */
     public function view($id = null)
     {
-        $abastecimento = $this->Abastecimentos->get($id);
+        $abastecimento = $this->Abastecimentos->get($id, [ 'contain' =>  ['Users'] ]);
 
         $this->set(compact('abastecimento'));
     }

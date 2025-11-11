@@ -10,7 +10,6 @@
             <aside>
                 <div class="nav">
                     <?= $this->Html->link(__('Listar Administradores'), ['action' => 'index'], ['class' => 'button']) ?>
-                    <?= $this->Html->link(__('Editar Administrador'), ['action' => 'edit', $administrador->id], ['class' => 'button']) ?>
                 </div>
             </aside>
             <h3>admin_<?= h($administrador->id) ?></h3>
@@ -18,10 +17,6 @@
                 <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= h($administrador->id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Nome') ?></th>
-                    <td><?= h($administrador->nome) ?></td>
                 </tr>
             </table>
             
@@ -41,7 +36,6 @@
                                 <?= $this->Html->link(__('🔍'), ['controller' => 'Users', 'action' => 'view', $administrador->user->id]) ?>
                                 <?= $this->Html->link(__('✏️'), ['controller' => 'Users', 'action' => 'edit', $administrador->user->id]) ?>
                                 <?= $this->Html->link(__('🔑'), ['controller' => 'Users', 'action' => 'editpassword', $administrador->user->id]) ?>
-                                <?= $this->Form->postLink(__('❌'), ['controller' => 'Users', 'action' => 'delete', $administrador->user->id], ['confirm' => __('Tem certeza que deseja deletar o usuário {0}?', $administrador->user->email)]) ?>
                             </td>
                             <td><?= $this->Html->link((string)$administrador->user->id, ['controller' => 'Users', 'action' => 'view', $administrador->user->id]) ?></td>
                             <td><?= $administrador->user->email ? $this->Text->autoLinkEmails($administrador->user->email) : '' ?></td>

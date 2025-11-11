@@ -29,6 +29,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                 <tr>
                     <th class="actions"><?= __('Ações') ?></th>
                     <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('nome') ?></th>
                     <th><?= $this->Paginator->sort('email') ?></th>
                     <!--th><?= h('Categorias') ?></th-->
                     <th><?= $this->Paginator->sort('created', 'Criado') ?></th>
@@ -48,6 +49,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                         
                     </td>
                     <td><?= $this->Html->link((string)$user->id, ['action' => 'view', $user->id]) ?></td>
+                    <td><?= $this->Html->link($user->nome, ['action' => 'view', $user->id]) ?></td>
                     <td><?= $user->email ? $this->Text->autoLinkEmails($user->email) : '' ?></td>
                     <td><?= $user->created ? h($user->created) : '' ?></td>
                     <td><?= $user->modified ? h($user->modified) : '' ?></td>

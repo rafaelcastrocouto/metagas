@@ -33,8 +33,12 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     <td><?= h($user->id) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Nome') ?></th>
+                    <td><?= h($user->nome) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Email') ?></th>
-                    <td><?= $user->email ? $this->Text->autoLinkEmails($user->email) : '' ?></td>
+                    <td><?= $user->email ? $this->Text->autoLinkEmails($user->email) : 'Erro: É necessário registrar um email' ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Criado') ?></th>
@@ -54,16 +58,12 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                         <tr>
                             <th class="actions"><?= __('Actions') ?></th>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('Nome') ?></th>
                         </tr>
                         <tr>
                             <td class="actions">
                                 <?= $this->Html->link(__('🔍'), ['controller' => 'administradores', 'action' => 'view', $user->administrador->id]) ?>
-                                <?= $this->Html->link(__('✏️'), ['controller' => 'administradores', 'action' => 'edit', $user->administrador->id]) ?>
-                                <?= $this->Form->postLink(__('❌'), ['controller' => 'administradores', 'action' => 'delete', $user->administrador->id], ['confirm' => __('Tem certeza que deseja deletar o administrador {0}?', $user->administrador->nome)]) ?>
                             </td>
                             <td><?= $this->Html->link((string)$user->administrador->id, ['controller' => 'administradores', 'action' => 'view', $user->administrador->id]) ?></td>
-                            <td><?= $this->Html->link(h($user->administrador->nome), ['controller' => 'administradores', 'action' => 'view', $user->administrador->id]) ?></td>
                         </tr>
                     </table>
                 </div>
@@ -78,8 +78,10 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                         <tr>
                             <th class="actions"><?= __('Actions') ?></th>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('Nome') ?></th>
+                            <th><?= __('Cpf') ?></th>
+                            <th><?= __('Endereço') ?></th>
                             <th><?= __('Celular') ?></th>
+                            <th><?= __('Observações') ?></th>
                         </tr>
                         <tr>
                             <td class="actions">
@@ -88,8 +90,10 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                                 <?= $this->Form->postLink(__('❌'), ['controller' => 'operadores', 'action' => 'delete', $user->operador->id], ['confirm' => __('Tem certeza que deseja deletar o operador {0}?', $user->operador->nome)]) ?>
                             </td>
                             <td><?= $this->Html->link((string)$user->operador->id, ['controller' => 'operadores', 'action' => 'view', $user->operador->id]) ?></td>
-                            <td><?= $this->Html->link(h($user->operador->nome), ['controller' => 'operadores', 'action' => 'view', $user->operador->id]) ?></td>
-                            <td><?= $user->operador->celular ? h($user->operador->celular) : '' ?></td>
+                            <td><?= h($user->operador->cpf) ?></td>
+                            <td><?= h($user->operador->endereco) ?></td>
+                            <td><?= h($user->operador->celular) ?></td>
+                            <td><?= h($user->operador->observacoes) ?></td>
                         </tr>
                     </table>
                 </div>
@@ -107,8 +111,10 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                         <tr>
                             <th class="actions"><?= __('Actions') ?></th>
                             <th><?= __('Id') ?></th>
-                            <th><?= __('Nome') ?></th>
                             <th><?= __('Cpf') ?></th>
+                            <th><?= __('Endereço') ?></th>
+                            <th><?= __('Celular') ?></th>
+                            <th><?= __('Observações') ?></th>
                         </tr>
                         <tr>
                             <td class="actions">
@@ -117,8 +123,10 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                                 <?= $this->Form->postLink(__('❌'), ['controller' => 'supervisores', 'action' => 'delete', $user->supervisor->id], ['confirm' => __('Tem certeza que deseja deletar o supervisor {0}?', $user->supervisor->nome)]) ?>
                             </td>
                             <td><?= $this->Html->link((string)$user->supervisor->id, ['controller' => 'supervisores', 'action' => 'view', $user->supervisor->id]) ?></td>
-                            <td><?= $this->Html->link($user->supervisor->nome, ['controller' => 'supervisores', 'action' => 'view', $user->supervisor->id]) ?></td>
                             <td><?= h($user->supervisor->cpf) ?></td>
+                            <td><?= h($user->supervisor->endereco) ?></td>
+                            <td><?= h($user->supervisor->celular) ?></td>
+                            <td><?= h($user->supervisor->observacoes) ?></td>
                         </tr>
                     </table>
                 </div>

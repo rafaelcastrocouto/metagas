@@ -37,7 +37,7 @@ class AdministradoresController extends AppController
     
     public function index()
     {
-        $administradores = $this->paginate($this->Administradores);
+        $administradores = $this->paginate($this->Administradores->find('all')->contain(['Users']));
         $this->set(compact('administradores'));
     }
 

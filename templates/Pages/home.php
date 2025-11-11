@@ -103,7 +103,7 @@ $user_session = $this->request->getAttribute('identity');
                     <div class="col">
                         <p>Prezado operador, primeiro crie sua conta com email e senha depois faça login.</p>
                         <p>Supervisores devem contactar um administrador para criar suas contas.</a></p>
-                        <p>Ficou alguma dúvida? <br />Escreva um e-mail detalhado para: <?= $this->Text->autoLinkEmails('meta@gas.br') ?>.</p>
+                        <p>Ficou alguma dúvida? <br />Escreva um e-mail detalhado para: <?= $this->Text->autoLinkEmails('adm@metagas.com.br') ?>.</p>
                         <p>Estamos à disposição.</p>
                     </div>
                 </div>

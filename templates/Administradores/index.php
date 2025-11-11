@@ -18,6 +18,7 @@
                     <th class="actions"><?= __('Ações') ?></th>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('nome') ?></th>
+                    <th><?= $this->Paginator->sort('email') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,10 +26,10 @@
                 <tr>
                     <td class="actions">
                         <?= $this->Html->link(__('🔍'), ['action' => 'view', $administrador->id]) ?>
-                        <?= $this->Html->link(__('✏️'), ['action' => 'edit', $administrador->id]) ?>
                     </td>
                     <td><?= $this->Html->link((string)$administrador->id, ['action' => 'view', $administrador->id]) ?></td>
-                    <td><?= $this->Html->link($administrador->nome, ['action' => 'view', $administrador->id]) ?></td>
+                    <td><?= $this->Html->link($administrador->user->nome, ['action' => 'view', $administrador->id]) ?></td>
+                    <td><?= $this->Text->autoLinkEmails($administrador->user->email) ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

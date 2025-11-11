@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-$user_data = ['administrador_id'=>0,'cliente_id'=>0,'cliente_id'=>0];
+$user_data = ['administrador_id'=>0,'operador_id'=>0,'supervisor_id'=>0];
 $user_session = $this->request->getAttribute('identity');
 if ($user_session) { $user_data = $user_session->getOriginalData(); }
 

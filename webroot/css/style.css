@@ -219,4 +219,6 @@ footer {
     background: #2b6c9c;
     color: #fff;
     padding: 10px;
+    =: 100%;
+    box-shadow: 96vw 0 0 0 #2b6c9c;
 }
