@@ -15,11 +15,11 @@
                     <?= $this->Html->link(__('Novo Operador'), ['action' => 'add'], ['class' => 'button']) ?>
                 </div>
             </aside>
-            <h3>operador_<?= h($operador->id) ?></h3>
+            <h3>Operador</h3>
             <table>
                 <tr>
-                    <th><?= __('Nome') ?></th>
-                    <td><?= h($operador->nome) ?></td>
+                    <th><?= __('Id') ?></th>
+                    <td><?= h($operador->id) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Cpf') ?></th>
@@ -47,6 +47,7 @@
                         <tr>
                             <th class="actions"><?= __('Actions') ?></th>
                             <th><?= __('Id') ?></th>
+                            <th><?= __('Nome') ?></th>
                             <th><?= __('Email') ?></th>
                         </tr>
                         <tr>
@@ -57,6 +58,7 @@
                                 <?= $this->Form->postLink(__('❌'), ['controller' => 'Users', 'action' => 'delete', $operador->user->id], ['confirm' => __('Tem certeza que deseja deletar o usuário {0}?', $operador->user->email)]) ?>
                             </td>
                             <td><?= $this->Html->link((string)$operador->user->id, ['controller' => 'Users', 'action' => 'view', $operador->user->id]) ?></td>
+                            <td><?= $this->Html->link($operador->user->nome, ['controller' => 'Users', 'action' => 'view', $operador->user->id]) ?></td>
                             <td><?= $operador->user->email ? $this->Text->autoLinkEmails($operador->user->email) : '' ?></td>
                         </tr>
                     </table>

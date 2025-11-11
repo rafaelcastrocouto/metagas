@@ -30,7 +30,6 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     if ($user_data['administrador_id']):
                        echo $this->Form->control('user_id', ['type' => 'number']); 
                     endif;
-                    echo $this->Form->control('nome');
                     echo $this->Form->control('cpf');
                     echo $this->Form->control('endereco');
                     echo $this->Form->control('celular');

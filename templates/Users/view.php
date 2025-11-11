@@ -26,7 +26,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     
                 </div>
             </aside>
-            <h3>user_<?= h($user->id) ?></h3>
+            <h3>Usuário</h3>
             <table>
                 <tr>
                     <th><?= __('Id') ?></th>
