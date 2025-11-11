@@ -15,27 +15,103 @@
                     <?= $this->Html->link(__('Novo Abastecimento'), ['action' => 'add'], ['class' => 'button']) ?>
                 </div>
             </aside>
-            <h3>abastecimento_<?= h($abastecimento->id) ?></h3>
+            <h3>Abastecimento <?= h($abastecimento->id) ?></h3>
             <table>
                 <tr>
                     <th><?= __('Usuário') ?></th>
                     <td><?= $this->Html->link($abastecimento->user->nome, ['controller' => 'users', 'action' => 'view', $abastecimento->user->id]) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Instituição') ?></th>
+                    <td><?= $this->Html->link($abastecimento->instituicao->nome, ['controller' => 'instituicoes', 'action' => 'view', $abastecimento->instituicao->id]) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Controle') /* todo */ ?></th>
                     <td><?= h($abastecimento->controle) ?></td> 
                 </tr>
                 <tr>
-                    <th><?= __('Email') ?></th>
-                    <td><?= ($abastecimento->email) ? $this->Text->autoLinkEmails($abastecimento->email) : '' ?></td>
+                    <th><?= __('NF') ?></th>
+                    <td><?= h($abastecimento->nf) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Endereco') ?></th>
-                    <td><?= h($abastecimento->endereco) ?></td>
+                    <th><?= __('Certificado') ?></th>
+                    <td><?= h($abastecimento->certificado) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Celular') ?></th>
-                    <td><?= h($abastecimento->celular) ?></td>
+                    <th><?= __('Inicio') ?></th>
+                    <td><?= h($abastecimento->inicio) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Fim') ?></th>
+                    <td><?= h($abastecimento->fim) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Saída') ?></th>
+                    <td><?= h($abastecimento->saida) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Placa') ?></th>
+                    <td><?= h($abastecimento->placa) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Pressão Inicial') ?></th>
+                    <td><?= h($abastecimento->p_inicial) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Pressão Final') ?></th>
+                    <td><?= h($abastecimento->p_final) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Carregamento') ?></th>
+                    <td><?= h($abastecimento->carregamento) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('O2') ?></th>
+                    <td><?= h($abastecimento->o2) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('N2') ?></th>
+                    <td><?= h($abastecimento->n2) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('CH4') ?></th>
+                    <td><?= h($abastecimento->ch4) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('CO2') ?></th>
+                    <td><?= h($abastecimento->co2) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Soma') ?></th>
+                    <td><?= h($abastecimento->soma) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Densidade') ?></th>
+                    <td><?= h($abastecimento->densidade) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Ponto') ?></th>
+                    <td><?= h($abastecimento->ponto) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Wobbe') ?></th>
+                    <td><?= h($abastecimento->ponto) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Pcs') ?></th>
+                    <td><?= h($abastecimento->ponto) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('CH4 media') ?></th>
+                    <td><?= h($abastecimento->ponto) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('CO2 media') ?></th>
+                    <td><?= h($abastecimento->ponto) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('O2 media') ?></th>
+                    <td><?= h($abastecimento->ponto) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Observações') ?></th>

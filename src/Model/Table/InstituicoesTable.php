@@ -40,7 +40,7 @@ class InstituicoesTable extends Table
 
         $this->setTable('instituicoes');
         $this->setAlias('Instituicoes');
-        $this->setDisplayField('instituicao');
+        $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
         
     }

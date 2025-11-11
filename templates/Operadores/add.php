@@ -13,7 +13,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
 ?>
 <div>
     <div class="column">
-        <div class="operadores form content">
+        <div class="operadores add content">
             <aside>
                 <div class="nav">
                     <?= $this->Html->link(__('Listar Operadores'), ['action' => 'index'], ['class' => 'button']) ?>

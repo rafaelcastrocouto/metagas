@@ -6,7 +6,7 @@
 ?>
 <div>
     <div class="column">
-        <div class="instituicoes form content">
+        <div class="instituicoes add content">
             <aside>
                 <div class="nav">
                     <?= $this->Html->link(__('Listar Instituições'), ['action' => 'index'], ['class' => 'button']) ?>

@@ -73,6 +73,11 @@ body .button:active {
 .content .input select {
     margin-bottom: 1em;
 }
+.content .add .input input,
+.content .add .input select {
+    width: 450px;
+}
+
 
 .content .showCode + label {
     font-weight: normal;

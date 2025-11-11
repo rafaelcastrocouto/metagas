@@ -11,7 +11,7 @@ $user_session = $this->request->getAttribute('identity');
 if ($user_session) { $user_data = $user_session->getOriginalData(); }
 ?>
 
-<div class="users form content">
+<div class="users edit content">
     <aside>
         <div class="nav">
             <?php 

@@ -6,7 +6,7 @@
 ?>
 <div>
     <div class="column">
-        <div class="configuracao form content">
+        <div class="configuracao edit content">
             <?= $this->Form->create($configuracao) ?>
             <fieldset>
                 <h3><?= __('Editando Configurações') ?></h3>

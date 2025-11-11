@@ -10,7 +10,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
 
 ?>
 
-<div class="users form content">
+<div class="users add content">
     <aside>
         <div class="nav">
             <?php if ($user_data['administrador_id']): ?>

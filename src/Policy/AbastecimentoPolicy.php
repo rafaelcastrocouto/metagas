@@ -26,7 +26,7 @@ class AbastecimentoPolicy implements BeforePolicyInterface
   
   public function canAdd(IdentityInterface $userSession, Abastecimento $abastecimentoData)
   {
-    if ($user_data and ($user_data['operador_id'] || $user_data['supervisor_id'])) {
+    if ($userSession and ($userSession['operador_id'] || $userSession['supervisor_id'])) {
       return new Result(true);
     } else {
       return new Result(false, 'Erro: abastecimento add policy not allowed');
@@ -36,16 +36,16 @@ class AbastecimentoPolicy implements BeforePolicyInterface
   
   public function canView(IdentityInterface $userSession, Abastecimento $abastecimentoData)
   {
-    if ($user_data and ($user_data['operador_id'] || $user_data['supervisor_id'])) {
+    if ($userSession and ($userSession['operador_id'] || $userSession['supervisor_id'])) {
       return new Result(true);
     } else {
       return new Result(false, 'Erro: abastecimento add policy not allowed');
     }
   }
   
-  public function canEdit()
+  public function canEdit(IdentityInterface $userSession, Abastecimento $abastecimentoData)
   {
-    if ($user_data and ($user_data['operador_id'] || $user_data['supervisor_id'])) {
+    if ($userSession and ($userSession['operador_id'] && $this->sameUser($userSession, $abastecimentoData) || $userSession['supervisor_id'])) {
       return new Result(true);
     } else {
       return new Result(false, 'Erro: abastecimento add policy not allowed');
@@ -59,7 +59,7 @@ class AbastecimentoPolicy implements BeforePolicyInterface
   
   protected function sameUser(IdentityInterface $userSession, Abastecimento $abastecimentoData)
   {
-    return ($userSession->id == Abastecimento->user_id);
+    return ($userSession->id == $abastecimentoData->user_id);
   }
 
 }

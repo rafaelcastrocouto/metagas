@@ -288,13 +288,13 @@ input[type='datetime-local'] {
     text-align: center;
 }
 .pagination a {
-    color: var(--color-cakephp-blue);
+    /* color: var(--color-cakephp-blue); */
     display: inline-block;
-    font-size: 1.25rem;
-    line-height: 3rem;
-    min-width: 3rem;
-    padding: 0;
-    position: relative;
+    /* font-size: 1.25rem; */
+    line-height: 2rem;
+    min-width: 2rem;
+    /* padding: 0; */
+    /* position: relative; */
     text-decoration: none;
     transition: background .3s,color .3s;
 }
@@ -304,12 +304,6 @@ input[type='datetime-local'] {
 }
 .pagination .disabled a {
     display: none;
-}
-.first a,
-.prev a,
-.next a,
-.last a {
-    padding: 0 .75rem;
 }
 .disabled a:hover {
     background: initial;
@@ -372,15 +366,14 @@ input[type='datetime-local'] {
 /* Footer */
 footer {
     text-align: center;
-    padding: 1em;];]2;];
+    padding: 1em;
 }
 footer img {
     margin-right: 4em;
-    max-height: 40px;
+    max-height: 30px;
 }
 footer img[alt="CakePHP"] {
     max-height: 25px;
-    vertical-align: super;
 }
 /*
 @media (prefers-color-scheme: dark) {

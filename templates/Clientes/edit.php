@@ -12,7 +12,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
 ?>
 <div>
     <div class="column">
-        <div class="clientes form content">
+        <div class="clientes edit content">
             <aside>
                 <div class="nav">
                     <?= $this->Html->link(__('Listar Clientes'), ['action' => 'index'], ['class' => 'button']) ?>

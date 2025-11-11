@@ -28,7 +28,7 @@ class AbastecimentosController extends AppController
      */
     public function index()
     {
-        $abastecimentos = $this->paginate($this->Abastecimentos->find('all')->contain(['Users']));
+        $abastecimentos = $this->paginate($this->Abastecimentos->find('all')->contain(['Users', 'Instituicoes']));
         $this->set(compact('abastecimentos'));
     }
 
@@ -41,8 +41,7 @@ class AbastecimentosController extends AppController
      */
     public function view($id = null)
     {
-        $abastecimento = $this->Abastecimentos->get($id, [ 'contain' =>  ['Users'] ]);
-
+        $abastecimento = $this->Abastecimentos->get($id, ['contain' => ['Users', 'Instituicoes']]);
         $this->set(compact('abastecimento'));
     }
 
@@ -54,9 +53,18 @@ class AbastecimentosController extends AppController
     public function add()
     {
         $abastecimento = $this->Abastecimentos->newEmptyEntity();
+
+        try {
+            $this->Authorization->authorize($abastecimento);
+        } catch (ForbiddenException $error) {
+            $user_session = $this->request->getAttribute('identity');
+            $this->Flash->error('Authorization error: ' . $error->getMessage());
+            return $this->redirect(['action' => 'index']);
+        }
+        
         if ($this->request->is('post')) {
             $abastecimento = $this->Abastecimentos->patchEntity($abastecimento, $this->request->getData());
-            
+
             if (!$abastecimento->user_id) { 
                 $user = $this->Authentication->getIdentity();
                 $abastecimento->user_id = $user->get('id'); 
@@ -69,6 +77,7 @@ class AbastecimentosController extends AppController
             }
             $this->Flash->error(__('The abastecimento could not be saved. Please, try again.'));
         }
+        
         $instituicoes = $this->Abastecimentos->Instituicoes->find('list');
         $this->set(compact('abastecimento', 'instituicoes'));
     }
