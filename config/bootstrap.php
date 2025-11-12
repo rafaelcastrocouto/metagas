@@ -44,6 +44,7 @@ use Cake\Mailer\TransportFactory;
 use Cake\Routing\Router;
 use Cake\Utility\Security;
 use Cake\Utility\Inflector;
+use Cake\I18n\I18n;
 
 /**
  * Load global functions.
@@ -200,21 +201,24 @@ ServerRequest::addDetector('tablet', function ($request) {
  * locale specific date formats. For details see
  * @link https://book.cakephp.org/5/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
-// \Cake\Database\TypeFactory::build('time')
+
+I18n::setLocale('pt-BR');
+
+// Cake\Database\TypeFactory::build('time')
 //    ->useLocaleParser();
-// \Cake\Database\TypeFactory::build('date')
+// Cake\Database\TypeFactory::build('date')
+//    ->useLocaleParser()->setLocaleFormat('dd-M-y');
+// Cake\Database\TypeFactory::build('datetime')
+//    ->useLocaleParser()->setLocaleFormat('dd-M-y');
+// Cake\Database\TypeFactory::build('timestamp')
 //    ->useLocaleParser();
-// \Cake\Database\TypeFactory::build('datetime')
+// Cake\Database\TypeFactory::build('datetimefractional')
 //    ->useLocaleParser();
-// \Cake\Database\TypeFactory::build('timestamp')
+// Cake\Database\TypeFactory::build('timestampfractional')
 //    ->useLocaleParser();
-// \Cake\Database\TypeFactory::build('datetimefractional')
+// Cake\Database\TypeFactory::build('datetimetimezone')
 //    ->useLocaleParser();
-// \Cake\Database\TypeFactory::build('timestampfractional')
-//    ->useLocaleParser();
-// \Cake\Database\TypeFactory::build('datetimetimezone')
-//    ->useLocaleParser();
-// \Cake\Database\TypeFactory::build('timestamptimezone')
+// Cake\Database\TypeFactory::build('timestamptimezone')
 //    ->useLocaleParser();
 
 /*

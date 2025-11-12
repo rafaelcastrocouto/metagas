@@ -43,11 +43,21 @@ class Cliente extends Entity
      */
     protected array $_accessible = [
         'user_id' => true,
-        'nome' => true,
-        'cpf' => true,
-        'email' => true,
-        'endereco' => true,
-        'celular' => true,
+        'instituicao_id' => true,
+        'data' => true,
+        'ch4_media_biogas' => true,
+        'co2_media_biogas' => true,
+        'o2_media_biogas' => true,
+        'ch4_media_metano' => true,
+        'co2_media_metano' => true,
+        'o2_media_metano' => true,
+        'n2_media_metano' => true,
+        'volume_biogas_dia' => true,
+        'consumo_clientes' => true,
+        'dispenser' => true,
+        'energia' => true,
+        'densidade' => true,
+        'status' => true,
         'observacoes' => true
     ];
 }

@@ -17,9 +17,18 @@
         <table>
             <thead>
                 <tr>
-                    <th colspan="9">Qualidade</th>
+                    <th colspan="2"></th>
+                    <th colspan="7">Qualidade</th>
                     <th colspan="6">Produção</th>
-                    <th colspan="3">Resumo</th>
+                    <th colspan="3"></th>
+                </tr>
+                <tr>
+                    <th colspan="2"></th>
+                    <th colspan="3">QUALIDADE MÉDIA DO BIOGÁS ECOURBIS</th>
+                    <th colspan="4">QUALIDADE DO BIOMETANO</th>
+                    <th colspan="1">VOLUME BIOGÁS</th>
+                    <th colspan="1">VOLUME BIOGÁS</th>
+                    <th colspan="4">VOLUME BIOMETANO</th>
                 </tr>
                 <tr>
                     <th class="actions"><?= __('Ações') ?></th>
@@ -34,12 +43,12 @@
                     <th><?= $this->Paginator->sort('co2_media_metano', '% CO2 MÉDIA') ?></th>
                     <th><?= $this->Paginator->sort('o2_media_metano', '% O2 MÉDIA') ?></th>
                     <th><?= $this->Paginator->sort('n2_media_metano', '% N2 MÉDIA') ?></th>
-                    <th><?= $this->Paginator->sort('volume_biogas_dia', 'VOLUME BIOGÁS TOTAL DIA M³') ?></th>
-                    <th><?= $this->Paginator->sort('volume_biogas_mes', 'VOLUME BIOGÁS TOTAL MÊS M³') ?></th>
-                    <th><?= $this->Paginator->sort('consumo_clientes', 'CLIENTES') ?></th>
+                    <th><?= $this->Paginator->sort('volume_biogas_dia', 'TOTAL DIA M³') ?></th>
+                    <th><?= $this->Paginator->sort('volume_biogas_mes', 'TOTAL MÊS M³') ?></th>
+                    <th><?= $this->Paginator->sort('consumo_clientes', 'CLIENTES M³') ?></th>
                     <th><?= $this->Paginator->sort('dispenser', 'DISPENSER') ?></th>
-                    <th><?= $this->Paginator->sort('volume_total_dia', 'VOLUME BIOMETANO TOTAL DIA M³') ?></th>
-                    <th><?= $this->Paginator->sort('volume_total_mes', 'VOLUME BIOMETANO TOTAL MÊS M³') ?></th>
+                    <th><?= $this->Paginator->sort('volume_total_dia', 'TOTAL DIA M³') ?></th>
+                    <th><?= $this->Paginator->sort('volume_total_mes', 'TOTAL MÊS M³') ?></th>
                     <th><?= $this->Paginator->sort('energia', 'ENERGIA MW') ?></th>
                     <th><?= $this->Paginator->sort('densidade', 'DENSIDADE KG/M3') ?></th>
                     <th title="PP: Planta Parada, PO:: Planta em Operação"><?= $this->Paginator->sort('status', 'STATUS') ?></th>
@@ -67,9 +76,13 @@
                     <td><?= h($relatorio->n2_media_metano) ?></td>
                     <td><?= h($relatorio->volume_biogas_dia) ?></td>
                     <td>volume_biogas_mes todo sum</td>
-                    <td>
+                    <td class="td_consumo">
                         <span class="consumo_parsed"></span>
                         <span class="consumo"><?= h($relatorio->consumo_clientes) ?></span>
+                    </td>
+                    <td><?= h($relatorio->dispenser) ?></td>
+                    <td class="td_volume_total_dia"></td>
+                    <td>volume_total_mes todo sum</td>
                         <script>
                             (function () {
                                 const clientes = document.querySelector('#clientes');
@@ -78,22 +91,22 @@
                                 for (let key in clientesData) {
                                     parsedClients[clientesData[key].id] = clientesData[key];
                                 }
-                                const consumo = document.currentScript.previousElementSibling;
+                                const consumo = document.currentScript.parentElement.querySelector('.td_consumo .consumo');
                                 const consumoData = new Function('return {'+consumo.textContent+'}')();
                                 let parsedText = [];
+                                let sum = 0;
                                 for (let clienteId in consumoData) {
                                     const link = '<a href="clientes/view/' + clienteId + '">' + parsedClients[clienteId].nome + '</a>';
                                     const text = link + ': ' + consumoData[clienteId];
                                     parsedText.push(text);
+                                    sum += Number(consumoData[clienteId]) || 0;
                                 }
                                 consumo.classList.add('hidden');
                                 consumo.previousElementSibling.innerHTML = parsedText.join(', ');
+                                const volume_dia = document.currentScript.parentElement.querySelector('.td_volume_total_dia');
+                                volume_dia.textContent = sum;
                             })()
                         </script>
-                    </td>
-                    <td><?= h($relatorio->dispenser) ?></td>
-                    <td>volume_total_dia todo sum</td>
-                    <td>volume_total_mes todo sum</td>
                     <td><?= h($relatorio->energia) ?></td>
                     <td><?= h($relatorio->densidade) ?></td>
                     <td><?= h($relatorio->status) ?></td>

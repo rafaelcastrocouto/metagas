@@ -67,37 +67,45 @@
                     <th><?= __('Volume Biogas Dia') ?></th>
                     <td><?= h($relatorio->volume_biogas_dia) ?></td>
                 </tr>
-                <tr>
+                <tr class="tr_consumo">
                     <th><?= __('Consumo Clientes') ?></th>
                     <!-- <td><?= h($relatorio->consumo_clientes) ?></td> -->
                     <td>
                         <span class="consumo_parsed"></span>
                         <span class="consumo"><?= h($relatorio->consumo_clientes) ?></span>
-                        <script>
-                            (function () {
-                                const clientes = document.querySelector('#clientes');
-                                const clientesData = JSON.parse(clientes.textContent);
-                                const parsedClients = {};
-                                for (let key in clientesData) {
-                                    parsedClients[clientesData[key].id] = clientesData[key];
-                                }
-                                const consumo = document.currentScript.previousElementSibling;
-                                const consumoData = new Function('return {'+consumo.textContent+'}')();
-                                let parsedText = [];
-                                for (let clienteId in consumoData) {
-                                    const link = '<a href="clientes/view/' + clienteId + '">' + parsedClients[clienteId].nome + '</a>';
-                                    const text = link + ': ' + consumoData[clienteId];
-                                    parsedText.push(text);
-                                }
-                                consumo.classList.add('hidden');
-                                consumo.previousElementSibling.innerHTML = parsedText.join(', ');
-                            })()
-                        </script>
                     </td>
                 </tr>
                 <tr>
                     <th><?= __('Dispenser') ?></th>
                     <td><?= h($relatorio->dispenser) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Volume Total Dia') ?></th>
+                    <td></td>
+                    <script>
+                        (function () {
+                            const clientes = document.querySelector('#clientes');
+                            const clientesData = JSON.parse(clientes.textContent);
+                            const parsedClients = {};
+                            for (let key in clientesData) {
+                                parsedClients[clientesData[key].id] = clientesData[key];
+                            }
+                            const consumo = document.currentScript.parentElement.parentElement.querySelector('.tr_consumo .consumo');
+                            const consumoData = new Function('return {'+consumo.textContent+'}')();
+                            let parsedText = [];
+                            let sum = 0;
+                            for (let clienteId in consumoData) {
+                                const link = '<a href="clientes/view/' + clienteId + '">' + parsedClients[clienteId].nome + '</a>';
+                                const text = link + ': ' + consumoData[clienteId];
+                                parsedText.push(text);
+                                sum += Number(consumoData[clienteId]) || 0;
+                            }
+                            consumo.classList.add('hidden');
+                            consumo.previousElementSibling.innerHTML = parsedText.join(', ');
+                            const volume_dia = document.currentScript.previousElementSibling;
+                            volume_dia.textContent = sum;
+                        })()
+                    </script>
                 </tr>
                 <tr>
                     <th><?= __('Energia') ?></th>
