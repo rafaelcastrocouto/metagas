@@ -211,6 +211,9 @@ label,legend {
 #url-rewriting-warning {
     display: none;
 }
+.row {
+    display: flex;
+}
 .col {
     padding: 1em;
     display: grid;
