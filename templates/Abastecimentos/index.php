@@ -50,7 +50,7 @@
                     <td class="actions">
                         <?= $this->Html->link(__('🔍'), ['action' => 'view', $abastecimento->id]) ?>
                         <?= $this->Html->link(__('✏️'), ['action' => 'edit', $abastecimento->id]) ?>
-                        <?= $this->Form->postLink(__('❌'), ['action' => 'delete', $abastecimento->id], ['confirm' => __('Tem certeza que deseja deletar o abastecimento {0}?', $abastecimento->nome)]) ?>
+                        <?= $this->Form->postLink(__('❌'), ['action' => 'delete', $abastecimento->id], ['confirm' => __('Tem certeza que deseja deletar o abastecimento {0}?', $abastecimento->controle)]) ?>
                     </td>
                     <!-- <td><?= $this->Html->link((string)$abastecimento->id, ['action' => 'view', $abastecimento->id]) ?></td> -->
                     <!-- <td><?= $this->Html->link((string)$abastecimento->user->id, ['controller' => 'users', 'action' => 'view', $abastecimento->user->id]) ?></td> -->

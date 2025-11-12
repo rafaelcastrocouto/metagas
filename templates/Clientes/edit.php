@@ -17,7 +17,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                 <div class="nav">
                     <?= $this->Html->link(__('Listar Clientes'), ['action' => 'index'], ['class' => 'button']) ?>
                     <?= $this->Form->postLink(
-                        __('Deletar'),
+                        __('Deletar Cliente'),
                         ['action' => 'delete', $cliente->id],
                         ['confirm' => __('Tem certeza que deseja deletar o cliente {0}?', $cliente->nome), 'class' => 'button']
                     ) ?>
@@ -25,7 +25,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             </aside>
             <?= $this->Form->create($cliente) ?>
             <fieldset>
-                <h3><?= __('Editando cliente_') . $cliente->id ?></h3>
+                <h3><?= __('Editando Cliente ') . $cliente->nome ?></h3>
                 <?php
                     echo $this->Form->control('nome');
                     echo $this->Form->control('cpf');
@@ -35,7 +35,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     echo $this->Form->control('observacoes');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Editar'), ['class' => 'button']) ?>
+            <?= $this->Form->button(__('Salvar Edição'), ['class' => 'button']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

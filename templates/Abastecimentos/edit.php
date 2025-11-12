@@ -17,15 +17,15 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                 <div class="nav">
                     <?= $this->Html->link(__('Listar Abastecimentos'), ['action' => 'index'], ['class' => 'button']) ?>
                     <?= $this->Form->postLink(
-                        __('Deletar'),
+                        __('Deletar Abastecimento'),
                         ['action' => 'delete', $abastecimento->id],
-                        ['confirm' => __('Tem certeza que deseja deletar o abastecimento {0}?', $abastecimento->nome), 'class' => 'button']
+                        ['confirm' => __('Tem certeza que deseja deletar o abastecimento {0}?', $abastecimento->controle), 'class' => 'button']
                     ) ?>
                 </div>
             </aside>
             <?= $this->Form->create($abastecimento) ?>
             <fieldset>
-                <h3><?= __('Editando Abastecimento ') . $abastecimento->id ?></h3>
+                <h3><?= __('Editando Abastecimento Controle ') . $abastecimento->controle ?></h3>
                 <?php
                     echo $this->Form->control('user_id', ['type' => 'number', 'value' => $user_session->get('id'), 'hidden' => !$user_data['administrador_id'] ]);
                     echo $this->Form->control('instituicao_id', ['options' => $instituicoes, 'class' => 'form-control']);
@@ -51,9 +51,10 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     echo $this->Form->control('ch4_media');
                     echo $this->Form->control('co2_media');
                     echo $this->Form->control('o2_media');
+                    echo $this->Form->control('observacoes');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Editar'), ['class' => 'button']) ?>
+            <?= $this->Form->button(__('Salvar Edição'), ['class' => 'button']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

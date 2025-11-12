@@ -41,7 +41,7 @@ class SupervisoresTable extends Table
 
         $this->setTable('supervisores');
         $this->setAlias('Supervisores');
-        $this->setDisplayField('nome');
+        $this->setDisplayField('cpf');
         $this->setPrimaryKey('id');
         
         $this->belongsTo('Users', [
@@ -62,9 +62,9 @@ class SupervisoresTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('nome')
-            ->maxLength('nome', 128)
-            ->notEmptyString('nome');
+            ->scalar('cpf')
+            ->maxLength('cpf', 128)
+            ->notEmptyString('cpf');
 
         return $validator;
     }

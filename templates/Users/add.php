@@ -23,13 +23,13 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
     </aside>
     <?= $this->Form->create($user) ?>
     <fieldset>
-        <h3><?= __('Adicionando usuário') ?></h3>
+        <h3><?= __('Adicionando Usuário') ?></h3>
         <?php
             echo $this->Form->control('email', ['required' => true, 'autocomplete' => 'username']);
             echo $this->Form->control('password', ['label' => 'Senha', 'required' => true, 'autocomplete' => 'new-password', 'id' => 'password' ]);
             echo $this->element('show_password');
         ?>
-        <?= $this->Form->button(__('Adicionar'), ['class' => 'button']) ?>
+        <?= $this->Form->button(__('Adicionar Usuário'), ['class' => 'button']) ?>
     </fieldset>
     <?= $this->Form->end() ?>
 </div>

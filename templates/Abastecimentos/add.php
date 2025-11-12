@@ -47,6 +47,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     echo $this->Form->control('ch4_media');
                     echo $this->Form->control('co2_media');
                     echo $this->Form->control('o2_media');
+                    echo $this->Form->control('observacoes');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Adicionar Abastecimento'), ['class' => 'button']) ?>

@@ -13,19 +13,19 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
  *
- * @method \App\Model\Entity\Supervisor newEmptyEntity()
- * @method \App\Model\Entity\Supervisor newEntity(array $data, array $options = [])
- * @method \App\Model\Entity\Supervisor[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Supervisor get($primaryKey, $options = [])
- * @method \App\Model\Entity\Supervisor findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \App\Model\Entity\Supervisor patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Supervisor[] patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\Supervisor|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Supervisor saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Supervisor[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Supervisor[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
- * @method \App\Model\Entity\Supervisor[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Supervisor[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Operador newEmptyEntity()
+ * @method \App\Model\Entity\Operador newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\Operador[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Operador get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Operador findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Operador patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Operador[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Operador|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Operador saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Operador[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Operador[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Operador[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Operador[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  */
 class OperadoresTable extends Table
 {
@@ -41,7 +41,7 @@ class OperadoresTable extends Table
 
         $this->setTable('operadores');
         $this->setAlias('Operadores');
-        $this->setDisplayField('nome');
+        $this->setDisplayField('cpf');
         $this->setPrimaryKey('id');
         
         $this->belongsTo('Users', [
@@ -62,9 +62,9 @@ class OperadoresTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('nome')
-            ->maxLength('nome', 128)
-            ->notEmptyString('nome');
+            ->scalar('cpf')
+            ->maxLength('cpf', 128)
+            ->notEmptyString('cpf');
 
         return $validator;
     }

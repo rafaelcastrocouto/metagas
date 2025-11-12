@@ -12,7 +12,7 @@
                     <?= $this->Html->link(__('Listar Administradores'), ['action' => 'index'], ['class' => 'button']) ?>
                 </div>
             </aside>
-            <h3>admin_<?= h($administrador->id) ?></h3>
+            <h3>Administrador</h3>
             <table>
                 <tr>
                     <th><?= __('Id') ?></th>

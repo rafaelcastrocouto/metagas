@@ -35,7 +35,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     echo $this->Form->control('observacoes');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Adicionar'), ['class' => 'button']) ?>
+            <?= $this->Form->button(__('Adicionar Supervisor'), ['class' => 'button']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

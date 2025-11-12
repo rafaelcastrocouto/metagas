@@ -41,7 +41,7 @@ class AdministradoresTable extends Table
 
         $this->setTable('administradores');
         $this->setAlias('Administradores');
-        $this->setDisplayField('nome');
+        $this->setDisplayField('user_id');
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Users', [

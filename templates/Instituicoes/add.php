@@ -14,7 +14,7 @@
             </aside>
             <?= $this->Form->create($instituicao) ?>
             <fieldset>
-                <h3><?= __('Adicionar Instituição') ?></h3>
+                <h3><?= __('Adicionando Instituição') ?></h3>
                 <?php
                     echo $this->Form->control('nome');
                     echo $this->Form->control('cnpj');
@@ -25,7 +25,7 @@
                     echo $this->Form->control('observacoes');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Adicionar'), ['class' => 'button']) ?>
+            <?= $this->Form->button(__('Adicionar Instituição'), ['class' => 'button']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

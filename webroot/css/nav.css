@@ -1,15 +1,16 @@
 body {
-    margin-top: 60px;
+    margin-top: 50px;
 }
 #content {
     max-width: 110rem;
     margin: 0 auto;
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 99px);
 }
 nav {
   font-family: 'Raleway', sans-serif;
   position: fixed;
   width: 100vw;
+  height: 50px;
   top: 0;
   left: 0;
   display: grid;

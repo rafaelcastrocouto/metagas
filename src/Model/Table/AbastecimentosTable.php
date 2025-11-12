@@ -41,7 +41,7 @@ class AbastecimentosTable extends Table
 
         $this->setTable('abastecimentos');
         $this->setAlias('Abastecimentos');
-        $this->setDisplayField('nome');
+        $this->setDisplayField('controle');
         $this->setPrimaryKey('id');
         
         $this->belongsTo('Users', [

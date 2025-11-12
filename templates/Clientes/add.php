@@ -21,7 +21,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             </aside>
             <?= $this->Form->create($cliente) ?>
             <fieldset>
-                <h3><?= __('Adicionando Operador') ?></h3>
+                <h3><?= __('Adicionando Cliente') ?></h3>
                 <?php
                     if ($user_data['administrador_id']):
                         $val = $this->request->getParam('pass') ? $this->request->getParam('pass')[0] : '';

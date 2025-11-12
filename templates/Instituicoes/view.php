@@ -15,7 +15,7 @@
                     <?= $this->Html->link(__('Nova Instituição'), ['action' => 'add'], ['class' => 'button']) ?>
                 </div>
             </aside>
-            <h3>instituicao_<?= h($instituicao->id) ?></h3>
+            <h3>Instituição</h3>
             <table>
                 <tr>
                     <th><?= __('Id') ?></th>

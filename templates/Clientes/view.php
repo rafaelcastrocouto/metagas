@@ -15,8 +15,12 @@
                     <?= $this->Html->link(__('Novo Cliente'), ['action' => 'add'], ['class' => 'button']) ?>
                 </div>
             </aside>
-            <h3>cliente_<?= h($cliente->id) ?></h3>
+            <h3>Cliente</h3>
             <table>
+                <tr>
+                    <th><?= __('Id') ?></th>
+                    <td><?= h($cliente->id) ?></td>
+                </tr>
                 <tr>
                     <th><?= __('Nome') ?></th>
                     <td><?= h($cliente->nome) ?></td>

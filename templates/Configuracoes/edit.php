@@ -15,7 +15,7 @@
                     echo $this->Form->control('descricao');
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Editar'), ['class' => 'button']) ?>
+            <?= $this->Form->button(__('Salvar Edição'), ['class' => 'button']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

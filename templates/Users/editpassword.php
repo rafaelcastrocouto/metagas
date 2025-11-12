@@ -17,14 +17,14 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             if ($user_data['administrador_id']):
                 echo $this->Html->link(__('Listar Usuários'), ['action' => 'index'], ['class' => 'button']);
                 echo $this->Form->postLink( __('Deletar'), ['action' => 'delete', $user->id],
-                    ['confirm' => __('Tem certeza que deseja deletar o usuário {0}?', $user->email), 'class' => 'button']
+                    ['confirm' => __('Tem certeza que deseja deletar o usuário {0}?', $user->nome), 'class' => 'button']
                 ); 
             endif; ?>
         </div>
     </aside>
     <?= $this->Form->create($user) ?>
     <fieldset>
-        <h3><?= __('Editando senha de ') . $user->email ?></h3>
+        <h3><?= __('Editando Senha do Usuário ') . $user->nome ?></h3>
         <?php
             echo $this->Form->control('password', ['value' => '', 'label' => 'Nova senha', 'placeholder' => 'nova senha', 'id' => 'password', 'required' => false]);
             echo $this->element('show_password');

@@ -11,12 +11,17 @@
                 <div class="nav">
                     <?= $this->Html->link(__('Listar Abastecimentos'), ['action' => 'index'], ['class' => 'button']) ?>
                     <?= $this->Html->link(__('Editar Abastecimento'), ['action' => 'edit', $abastecimento->id], ['class' => 'button']) ?>
-                    <?= $this->Form->postLink(__('Deletar Abastecimento'), ['action' => 'delete', $abastecimento->id], ['confirm' => __('Tem certeza que deseja deletar o abastecimento {0}?', $abastecimento->nome), 'class' => 'button']) ?>
+                    <?= $this->Form->postLink(__('Deletar Abastecimento'), ['action' => 'delete', $abastecimento->id], ['confirm' => __('Tem certeza que deseja deletar o abastecimento {0}?', $abastecimento->controle), 'class' => 'button']) ?>
                     <?= $this->Html->link(__('Novo Abastecimento'), ['action' => 'add'], ['class' => 'button']) ?>
                 </div>
             </aside>
-            <h3>Abastecimento <?= h($abastecimento->id) ?></h3>
+            <h3>Abastecimento</h3>
             <table>
+                <tr>
+                    <th><?= __('Id') ?></th>
+                    <td>
+                 <?= h($abastecimento->id) ?></td>
+                </tr>
                 <tr>
                     <th><?= __('Usuário') ?></th>
                     <td><?= $this->Html->link($abastecimento->user->nome, ['controller' => 'users', 'action' => 'view', $abastecimento->user->id]) ?></td>

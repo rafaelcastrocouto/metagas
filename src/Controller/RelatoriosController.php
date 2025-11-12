@@ -29,7 +29,7 @@ class RelatoriosController extends AppController
     public function index()
     {
         $relatorios = $this->paginate($this->Relatorios->find('all', [
-            'contain' => ['Users'],
+            'contain' => ['Users', 'Instituicoes'],
         ]));
         $this->set(compact('relatorios'));
     }
@@ -43,7 +43,9 @@ class RelatoriosController extends AppController
      */
     public function view($id = null)
     {
-        $relatorio = $this->Relatorios->get($id);
+        $relatorio = $this->Relatorios->get($id, [
+            'contain' => ['Users', 'Instituicoes'],
+        ]);
 
         $this->set(compact('relatorio'));
     }

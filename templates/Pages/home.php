@@ -117,7 +117,7 @@ $user_session = $this->request->getAttribute('identity');
                 <p>Atenção: a seção abaixo não irá aparecer se o modo debug estiver desligado.</p>
             </div>
             <div>
-                <div class="content">
+                <div class="content home">
                     <div class="row">
                         <div class="column">
                             <div id="url-rewriting-warning">
@@ -137,7 +137,7 @@ $user_session = $this->request->getAttribute('identity');
                     <p>
                         <a href="./abastecimentos">abastecimentos</a> | <a href="./abastecimentos/view/1">view</a> | <a href="./abastecimentos/edit/1">edit</a> | <a href="./abastecimentos/add">add</a><br />
                         <a href="./abastecimentoGNVs">abastecimentoGNVs</a> | <a href="./abastecimentoGNVs/view/1">view</a> | <a href="./abastecimentoGNVs/edit/1">edit</a> | <a href="./abastecimentoGNVs/add">add</a><br />
-                        <a href="./administradores">administradores</a> | <a href="./administradores/view/1">view</a> | <a href="./administradores/edit/1">edit</a><br />
+                        <a href="./administradores">administradores</a> | <a href="./administradores/view/1">view</a><br />
                         <a href="./clientes">clientes</a> | <a href="./clientes/view/1">view</a> | <a href="./clientes/edit/1">edit</a> | <a href="./clientes/add">add</a><br />
                         <a href="./configuracoes">configuracoes</a> | <a href="./configuracoes/edit/1">edit</a><br />
                         <a href="./instituicoes">instituicoes</a> | <a href="./instituicoes/view/1">view</a> | <a href="./instituicoes/edit/1">edit</a> | <a href="./instituicoes/add">add</a><br />

@@ -85,7 +85,9 @@ class SupervisoresController extends AppController
      */
     public function edit($id = null)
     {
-        $supervisor = $this->Supervisores->get($id);
+        $supervisor = $this->Supervisores->get($id, [
+            'contain' => ['Users'],
+        ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $supervisor = $this->Supervisores->patchEntity($supervisor, $this->request->getData());
             if ($this->Supervisores->save($supervisor)) {

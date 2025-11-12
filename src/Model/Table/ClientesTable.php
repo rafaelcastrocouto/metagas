@@ -11,21 +11,19 @@ use Cake\Validation\Validator;
 /**
  * Clientes Model
  *
- * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
- *
- * @method \App\Model\Entity\Supervisor newEmptyEntity()
- * @method \App\Model\Entity\Supervisor newEntity(array $data, array $options = [])
- * @method \App\Model\Entity\Supervisor[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Supervisor get($primaryKey, $options = [])
- * @method \App\Model\Entity\Supervisor findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \App\Model\Entity\Supervisor patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Supervisor[] patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\Supervisor|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Supervisor saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Supervisor[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Supervisor[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
- * @method \App\Model\Entity\Supervisor[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Supervisor[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Cliente newEmptyEntity()
+ * @method \App\Model\Entity\Cliente newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\Cliente[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Cliente get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Cliente findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Cliente patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Cliente[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Cliente|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Cliente saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Cliente[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Cliente[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Cliente[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Cliente[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  */
 class ClientesTable extends Table
 {
@@ -43,10 +41,6 @@ class ClientesTable extends Table
         $this->setAlias('Clientes');
         $this->setDisplayField('nome');
         $this->setPrimaryKey('id');
-        
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
-        ]);
     }
 
     /**

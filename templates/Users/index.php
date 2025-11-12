@@ -44,7 +44,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                         <?= $this->Html->link(__('✏️'), ['action' => 'edit', $user->id]) ?>
                         <?= $this->Html->link(__('🔑'), ['action' => 'editpassword', $user->id]) ?>
                         <?php if ($user_data['administrador_id']): ?>
-                            <?= $this->Form->postLink(__('❌'), ['action' => 'delete', $user->id], ['confirm' => __('Tem certeza que deseja deletar o usuário {0}?', $user->email)]) ?>
+                            <?= $this->Form->postLink(__('❌'), ['action' => 'delete', $user->id], ['confirm' => __('Tem certeza que deseja deletar o usuário {0}?', $user->nome)]) ?>
                         <?php endif; ?>
                         
                     </td>
