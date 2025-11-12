@@ -50,6 +50,9 @@ class AbastecimentosTable extends Table
         $this->belongsTo('Instituicoes', [
             'foreignKey' => 'instituicao_id',
         ]);
+        $this->belongsTo('Clientes', [
+            'foreignKey' => 'cliente_id',
+        ]);
     }
 
     /**

@@ -139,7 +139,7 @@ $user_session = $this->request->getAttribute('identity');
                     <h3>Mapa do site</h3>
                     <p>
                         <a href="./abastecimentos">abastecimentos</a> | <a href="./abastecimentos/view/1">view</a> | <a href="./abastecimentos/edit/1">edit</a> | <a href="./abastecimentos/add">add</a><br />
-                        <a href="./abastecimentoGNVs">abastecimentoGNVs</a> | <a href="./abastecimentoGNVs/view/1">view</a> | <a href="./abastecimentoGNVs/edit/1">edit</a> | <a href="./abastecimentoGNVs/add">add</a><br />
+                        <a href="./abastecimentognvs">abastecimentognvs</a> | <a href="./abastecimentognvs/view/1">view</a> | <a href="./abastecimentognvs/edit/1">edit</a> | <a href="./abastecimentognvs/add">add</a><br />
                         <a href="./administradores">administradores</a> | <a href="./administradores/view/1">view</a><br />
                         <a href="./clientes">clientes</a> | <a href="./clientes/view/1">view</a> | <a href="./clientes/edit/1">edit</a> | <a href="./clientes/add">add</a><br />
                         <a href="./configuracoes">configuracoes</a> | <a href="./configuracoes/edit/1">edit</a><br />

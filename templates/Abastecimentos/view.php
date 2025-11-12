@@ -31,6 +31,10 @@
                     <td><?= $this->Html->link($abastecimento->instituicao->nome, ['controller' => 'instituicoes', 'action' => 'view', $abastecimento->instituicao->id]) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Cliente') ?></th>
+                    <td><?= $this->Html->link($abastecimento->cliente->nome, ['controller' => 'clientes', 'action' => 'view', $abastecimento->cliente->id]) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Controle') /* todo */ ?></th>
                     <td><?= h($abastecimento->controle) ?></td> 
                 </tr>

@@ -20,6 +20,7 @@
                     <!-- <th><?= $this->Paginator->sort('id') ?></th> -->
                     <!-- <th><?= $this->Paginator->sort('user_id') ?></th> -->
                     <!-- <th><?= $this->Paginator->sort('instituicao_id') ?></th> -->
+                    <!-- <th><?= $this->Paginator->sort('cliente_id') ?></th> -->
                     <th><?= $this->Paginator->sort('controle') ?></th>
                     <th><?= $this->Paginator->sort('nf') ?></th>
                     <th><?= $this->Paginator->sort('certificado') ?></th>
@@ -54,7 +55,8 @@
                     </td>
                     <!-- <td><?= $this->Html->link((string)$abastecimento->id, ['action' => 'view', $abastecimento->id]) ?></td> -->
                     <!-- <td><?= $this->Html->link((string)$abastecimento->user->id, ['controller' => 'users', 'action' => 'view', $abastecimento->user->id]) ?></td> -->
-                    <!-- <td><?= $this->Html->link((string)$abastecimento->instituicao->nome, ['controller' => 'instituicoes', 'action' => 'view', $abastecimento->instituicao->id]) ?></td> -->
+                    <!-- <td><?= $this->Html->link($abastecimento->instituicao->nome, ['controller' => 'instituicoes', 'action' => 'view', $abastecimento->instituicao->id]) ?></td> -->
+                    <!-- <td><?= $this->Html->link($abastecimento->cliente->nome, ['controller' => 'clientes', 'action' => 'view', $abastecimento->clientes->id]) ?></td> -->
                     <td><?= h($abastecimento->controle) ?></td>
                     <td><?= h($abastecimento->nf) ?></td>
                     <td><?= h($abastecimento->certificado) ?></td>

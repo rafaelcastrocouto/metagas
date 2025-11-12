@@ -28,7 +28,9 @@ class AbastecimentosController extends AppController
      */
     public function index()
     {
-        $abastecimentos = $this->paginate($this->Abastecimentos->find('all')->contain(['Users', 'Instituicoes']));
+        $abastecimentos = $this->paginate($this->Abastecimentos->find('all')
+            ->contain(['Users', 'Instituicoes', 'Clientes']));
+        
         $this->set(compact('abastecimentos'));
     }
 
@@ -41,7 +43,7 @@ class AbastecimentosController extends AppController
      */
     public function view($id = null)
     {
-        $abastecimento = $this->Abastecimentos->get($id, ['contain' => ['Users', 'Instituicoes']]);
+        $abastecimento = $this->Abastecimentos->get($id, ['contain' => ['Users', 'Instituicoes', 'Clientes']]);
         $this->set(compact('abastecimento'));
     }
 
@@ -79,7 +81,8 @@ class AbastecimentosController extends AppController
         }
         
         $instituicoes = $this->Abastecimentos->Instituicoes->find('list');
-        $this->set(compact('abastecimento', 'instituicoes'));
+        $clientes = $this->Abastecimentos->Clientes->find('list');
+        $this->set(compact('abastecimento', 'instituicoes', 'clientes'));
     }
 
     /**
@@ -92,8 +95,17 @@ class AbastecimentosController extends AppController
     public function edit($id = null)
     {
         $abastecimento = $this->Abastecimentos->get($id, [
-            'contain' => ['Instituicoes'],
+            'contain' => ['Instituicoes', 'Clientes'],
         ]);
+
+        try {
+            $this->Authorization->authorize($abastecimento);
+        } catch (ForbiddenException $error) {
+            $user_session = $this->request->getAttribute('identity');
+            $this->Flash->error('Authorization error: ' . $error->getMessage());
+            return $this->redirect(['action' => 'index']);
+        }
+        
         if ($this->request->is(['patch', 'post', 'put'])) {
             $abastecimento = $this->Abastecimentos->patchEntity($abastecimento, $this->request->getData());
             if ($this->Abastecimentos->save($abastecimento)) {
@@ -104,7 +116,8 @@ class AbastecimentosController extends AppController
             $this->Flash->error(__('The abastecimento could not be saved. Please, try again.'));
         }
         $instituicoes = $this->Abastecimentos->Instituicoes->find('list');
-        $this->set(compact('abastecimento', 'instituicoes'));
+        $clientes = $this->Abastecimentos->Clientes->find('list');
+        $this->set(compact('abastecimento', 'instituicoes', 'clientes'));
     }
 
     /**

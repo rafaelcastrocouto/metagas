@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $user_id
  * @property int $instituicao_id
+ * @property int $cliente_id
  * @property int $controle
  * @property string $nf
  * @property string $certificado
@@ -37,6 +38,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\User[] $users
  * @property \App\Model\Entity\Instituicao[] $instituicoes
+ * @property \App\Model\Entity\Instituicao[] $clientes
  */
 class Abastecimento extends Entity
 {
@@ -52,6 +54,7 @@ class Abastecimento extends Entity
     protected array $_accessible = [
      'user_id' => true,
      'instituicao_id' => true,
+     'cliente_id' => true,
      'controle' => true,
      'nf' => true,
      'certificado' => true,

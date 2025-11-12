@@ -29,6 +29,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                 <?php
                     echo $this->Form->control('user_id', ['type' => 'number', 'value' => $user_session->get('id'), 'hidden' => !$user_data['administrador_id'] ]);
                     echo $this->Form->control('instituicao_id', ['options' => $instituicoes, 'class' => 'form-control']);
+                    echo $this->Form->control('cliente_id', ['options' => $clientes, 'class' => 'form-control']);
                     echo $this->Form->control('controle');
                     echo $this->Form->control('nf');
                     echo $this->Form->control('certificado');

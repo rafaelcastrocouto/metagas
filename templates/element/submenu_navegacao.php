@@ -34,7 +34,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
     <menu class="responsive-toggle-dropdown">
 
         <li><?php echo $this->Html->link("Abastecimentos", ['controller' => 'Abastecimentos', 'action' => 'index']); ?></li>
-        <li><?php echo $this->Html->link("GNV", ['controller' => 'AbastecimentoGNVs', 'action' => 'index']); ?></li>
+        <li><?php echo $this->Html->link("GNV", ['controller' => 'Abastecimentognvs', 'action' => 'index']); ?></li>
         <li><?php echo $this->Html->link("Relatórios", ['controller' => 'Relatorios', 'action' => 'index']); ?></li>
 
         <li class="menu-consulta">
