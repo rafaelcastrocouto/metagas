@@ -69,7 +69,7 @@ class OperadoresController extends AppController
             if ($this->Operadores->save($operador)) {
                 $this->Flash->success(__('The operador has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Users', 'action' => 'view', $operador->user_id]);
             }
             $this->Flash->error(__('The operador could not be saved. Please, try again.'));
         }
@@ -117,6 +117,6 @@ class OperadoresController extends AppController
             $this->Flash->error(__('The operador could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'Users', 'action' => 'view', $operador->user_id]);
     }
 }

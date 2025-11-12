@@ -17,26 +17,33 @@
         <table>
             <thead>
                 <tr>
+                    <th colspan="9">Qualidade</th>
+                    <th colspan="6">Produção</th>
+                    <th colspan="3">Resumo</th>
+                </tr>
+                <tr>
                     <th class="actions"><?= __('Ações') ?></th>
                     <!-- <th><?= $this->Paginator->sort('id') ?></th> -->
                     <!-- <th><?= $this->Paginator->sort('user_id') ?></th> -->
                     <!-- <th><?= $this->Paginator->sort('instituicao_id') ?></th> -->
                     <th><?= $this->Paginator->sort('data') ?></th>
-                    <th><?= $this->Paginator->sort('ch4_media_biogas') ?></th>
-                    <th><?= $this->Paginator->sort('co2_media_biogas') ?></th>
-                    <th><?= $this->Paginator->sort('o2_media_biogas') ?></th>
-                    <th><?= $this->Paginator->sort('ch4_media_metano') ?></th>
-                    <th><?= $this->Paginator->sort('co2_media_metano') ?></th>
-                    <th><?= $this->Paginator->sort('o2_media_metano') ?></th>
-                    <th><?= $this->Paginator->sort('n2_media_metano') ?></th>
-                    <th><?= $this->Paginator->sort('volume_biogas_dia') ?></th>
-                    <th><?= $this->Paginator->sort('volume_biogas_mes') ?></th>
-                    <th><?= $this->Paginator->sort('consumo_clientes') ?></th>
-                    <th><?= $this->Paginator->sort('dispenser') ?></th>
-                    <th><?= $this->Paginator->sort('energia') ?></th>
-                    <th><?= $this->Paginator->sort('densidade') ?></th>
-                    <th><?= $this->Paginator->sort('status') ?></th>
-                    <th><?= $this->Paginator->sort('observacoes') ?></th>
+                    <th><?= $this->Paginator->sort('ch4_media_biogas', '% CH4 MÉDIA') ?></th>
+                    <th><?= $this->Paginator->sort('co2_media_biogas', '% CO2 MÉDIA') ?></th>
+                    <th><?= $this->Paginator->sort('o2_media_biogas', '% O2 MÉDIA') ?></th>
+                    <th><?= $this->Paginator->sort('ch4_media_metano', '% CH4 MÉDIA') ?></th>
+                    <th><?= $this->Paginator->sort('co2_media_metano', '% CO2 MÉDIA') ?></th>
+                    <th><?= $this->Paginator->sort('o2_media_metano', '% O2 MÉDIA') ?></th>
+                    <th><?= $this->Paginator->sort('n2_media_metano', '% N2 MÉDIA') ?></th>
+                    <th><?= $this->Paginator->sort('volume_biogas_dia', 'VOLUME BIOGÁS TOTAL DIA M³') ?></th>
+                    <th><?= $this->Paginator->sort('volume_biogas_mes', 'VOLUME BIOGÁS TOTAL MÊS M³') ?></th>
+                    <th><?= $this->Paginator->sort('consumo_clientes', 'CLIENTES') ?></th>
+                    <th><?= $this->Paginator->sort('dispenser', 'DISPENSER') ?></th>
+                    <th><?= $this->Paginator->sort('volume_total_dia', 'VOLUME BIOMETANO TOTAL DIA M³') ?></th>
+                    <th><?= $this->Paginator->sort('volume_total_mes', 'VOLUME BIOMETANO TOTAL MÊS M³') ?></th>
+                    <th><?= $this->Paginator->sort('energia', 'ENERGIA MW') ?></th>
+                    <th><?= $this->Paginator->sort('densidade', 'DENSIDADE KG/M3') ?></th>
+                    <th title="PP: Planta Parada, PO:: Planta em Operação"><?= $this->Paginator->sort('status', 'STATUS') ?></th>
+                    <!-- <th><?= $this->Paginator->sort('observacoes') ?></th> -->
                 </tr>
             </thead>
             <tbody>
@@ -59,7 +66,7 @@
                     <td><?= h($relatorio->o2_media_metano) ?></td>
                     <td><?= h($relatorio->n2_media_metano) ?></td>
                     <td><?= h($relatorio->volume_biogas_dia) ?></td>
-                    <td><?= h($relatorio->volume_biogas_mes) ?></td>
+                    <td>volume_biogas_mes todo sum</td>
                     <td>
                         <span class="consumo_parsed"></span>
                         <span class="consumo"><?= h($relatorio->consumo_clientes) ?></span>
@@ -85,10 +92,12 @@
                         </script>
                     </td>
                     <td><?= h($relatorio->dispenser) ?></td>
+                    <td>volume_total_dia todo sum</td>
+                    <td>volume_total_mes todo sum</td>
                     <td><?= h($relatorio->energia) ?></td>
                     <td><?= h($relatorio->densidade) ?></td>
                     <td><?= h($relatorio->status) ?></td>
-                    <td><?= h($relatorio->observacoes) ?></td>
+                    <!-- <td><?= h($relatorio->observacoes) ?></td> -->
                 </tr>
                 <?php endforeach; ?>
             </tbody>

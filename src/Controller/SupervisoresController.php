@@ -69,7 +69,7 @@ class SupervisoresController extends AppController
             if ($this->Supervisores->save($supervisor)) {
                 $this->Flash->success(__('The supervisor has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Users', 'action' => 'view', $supervisor->user_id]);
             }
             $this->Flash->error(__('The supervisor could not be saved. Please, try again.'));
         }
@@ -117,6 +117,6 @@ class SupervisoresController extends AppController
             $this->Flash->error(__('The supervisor could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['controller' => 'Users', 'action' => 'view', $supervisor->user_id]);
     }
 }

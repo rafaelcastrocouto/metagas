@@ -85,7 +85,7 @@ $user_session = $this->request->getAttribute('identity');
     <div id="content">
         <?= $this->Flash->render() ?>
         <header>
-            <div>
+            <div class="home">
                 <div class="col">
                     <h1 class="text-center">Boas vindas ao <?= $this->Html->link('Metagas CMS', '/',['full'=>true]); ?></h1>
                     <h2 class="text-center">
@@ -99,9 +99,9 @@ $user_session = $this->request->getAttribute('identity');
                         <?php endif; ?> 
                     </h2>
                 </div>   
-                <div class="row">
+                <div class="row center">
                     <div class="col">
-                        <p>Prezado operador, primeiro crie sua conta com email e senha depois faça login.</p>
+                        <p>Prezado operador, primeiro crie sua conta e depois faça login.</p>
                         <p>Supervisores devem contactar um administrador para criar suas contas.</a></p>
                         <p>Ficou alguma dúvida? <br />Escreva um e-mail detalhado para: <?= $this->Text->autoLinkEmails('adm@metagas.com.br') ?>.</p>
                         <p>Estamos à disposição.</p>

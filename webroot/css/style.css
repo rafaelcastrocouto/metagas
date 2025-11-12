@@ -215,10 +215,17 @@ label,legend {
 .row {
     display: flex;
 }
+.home .row {
+    display: grid;
+}
+.home .row.center {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
 .col {
     padding: 1em;
-    display: grid;
-    place-content: center;
 }
 .formCode {
     font-family: consolas, monospace;

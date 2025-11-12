@@ -24,14 +24,21 @@ class AbastecimentoPolicy implements BeforePolicyInterface
     return null;
   }
   
-  public function canAdd(IdentityInterface $userSession, Abastecimento $abastecimentoData)
+  public function canAdd(IdentityInterface $identity, Abastecimento $abastecimentoData)
   {
-    if ($userSession and ($userSession['operador_id'] || $userSession['supervisor_id'])) {
+    if ($identity and ($identity['operador_id'] || $identity['supervisor_id'])) {
       return new Result(true);
     } else {
       return new Result(false, 'Erro: abastecimento add policy not allowed');
     }
-    
+    // if ($identity) {
+    //   $user_data = $identity->getOriginalData();
+    //   if ($user_data and ($user_data['operador_id'] || $user_data['supervisor_id'])) {
+    //     return new Result(true);
+    //   } else {
+    //     return new Result(false, 'Erro: abastecimento add policy not allowed');
+    //   }
+    // }
   }
   
   public function canView(IdentityInterface $userSession, Abastecimento $abastecimentoData)

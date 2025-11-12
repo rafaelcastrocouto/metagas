@@ -25,7 +25,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             </aside>
             <?= $this->Form->create($relatorio) ?>
             <fieldset>
-                <h3><?= __('Editando Relatorio Controle ') . $relatorio->controle ?></h3>
+                <h3><?= __('Editando Relatorio ') . $relatorio->data ?></h3>
                 <span id="clientes" class="hidden"><?= h(json_encode($clientes->toArray())) ?></span>
                 <?php
                     echo $this->Form->control('user_id', ['type' => 'number', 'value' => $user_session->get('id'), 'hidden' => !$user_data['administrador_id'] ]);
@@ -39,7 +39,6 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     echo $this->Form->control('o2_media_metano');
                     echo $this->Form->control('n2_media_metano');
                     echo $this->Form->control('volume_biogas_dia');
-                    echo $this->Form->control('volume_biogas_mes');
                     echo $this->Form->control('consumo_clientes');
                 ?>    
                         <h3>Clientes</h3>

@@ -15,7 +15,7 @@
                     <?= $this->Html->link(__('Novo Relatorio'), ['action' => 'add'], ['class' => 'button']) ?>
                 </div>
             </aside>
-            <h3>Relatorio</h3>
+            <h3>Relatorio <?= h($relatorio->data) ?></h3>
             <span id="clientes" class="hidden"><?= h(json_encode($clientes->toArray())) ?></span>
             <table>
                 <tr>

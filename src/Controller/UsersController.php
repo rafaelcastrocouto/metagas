@@ -100,7 +100,7 @@ class UsersController extends AppController {
         
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData(), [
-                'fields' => ['password', 'email'],
+                'fields' => ['nome', 'password', 'email'],
                 'accessibleFields' => ['password' => true]
             ]);
                 
@@ -145,12 +145,12 @@ class UsersController extends AppController {
             
         if ($this->request->is(['patch', 'post', 'put'])) {
             
-            $opt = ['fields' => ['email']];
+            $opt = ['fields' => ['nome', 'email']];
             $data = $this->request->getData();
             
             if (array_key_exists('password', $data)) {
                 $opt = [
-                    'fields' => ['email', 'password'],
+                    'fields' => ['nome', 'email', 'password'],
                     'accessibleFields' => ['password' => ($user_data['administrador_id'] OR $sameUser)]
                 ];
             } else { unset($data['password']); }

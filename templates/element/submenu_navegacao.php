@@ -35,7 +35,11 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
 
         <li><?php echo $this->Html->link("Abastecimentos", ['controller' => 'Abastecimentos', 'action' => 'index']); ?></li>
         <li><?php echo $this->Html->link("GNV", ['controller' => 'Abastecimentognvs', 'action' => 'index']); ?></li>
-        <li><?php echo $this->Html->link("Relatórios", ['controller' => 'Relatorios', 'action' => 'index']); ?></li>
+        
+        
+        <?php if ($user_data['administrador_id'] || $user_data['supervisor_id']): ?>
+            <li><?php echo $this->Html->link("Relatórios", ['controller' => 'Relatorios', 'action' => 'index']); ?></li>
+        <?php endif; ?>
 
         <li class="menu-consulta">
             <input id="menu-consulta-toggler" type="checkbox" class="toggle-input" />

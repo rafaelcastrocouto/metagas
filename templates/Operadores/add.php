@@ -24,7 +24,6 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                 <h3><?= __('Adicionando Operador') ?></h3>
                 <?php
                     echo $this->Form->control('user_id', ['type' => 'number', 'value' => $user_session->get('id'), 'hidden' => !$user_data['administrador_id'] ]); 
-                    echo $this->Form->control('nome');
                     echo $this->Form->control('cpf');
                     echo $this->Form->control('endereco');
                     echo $this->Form->control('celular');

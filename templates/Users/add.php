@@ -25,8 +25,9 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
     <fieldset>
         <h3><?= __('Adicionando Usuário') ?></h3>
         <?php
-            echo $this->Form->control('email', ['required' => true, 'autocomplete' => 'username']);
-            echo $this->Form->control('password', ['label' => 'Senha', 'required' => true, 'autocomplete' => 'new-password', 'id' => 'password' ]);
+            echo $this->Form->control('nome', ['required' => true, 'placeholder' => 'João Silva']);
+            echo $this->Form->control('email', ['required' => true, 'placeholder' => 'joao@gmail.com']);
+            echo $this->Form->control('password', ['label' => 'Senha', 'required' => true, 'placeholder' => 'senha_secreta_do_joao', 'id' => 'password' ]);
             echo $this->element('show_password');
         ?>
         <?= $this->Form->button(__('Adicionar Usuário'), ['class' => 'button']) ?>

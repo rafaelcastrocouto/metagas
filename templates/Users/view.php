@@ -132,9 +132,10 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                 </div>
             </div>
             <?php else: ?>
-                <p><?= $this->Html->link('Adicionar Supervisor', ['controller' => 'supervisores', 'action' => 'add'], ['class' => 'button btn-info']) ?></p>
+                <?php if ($user_data['administrador_id']): ?>
+                    <p><?= $this->Html->link('Adicionar Supervisor', ['controller' => 'supervisores', 'action' => 'add'], ['class' => 'button btn-info']) ?></p>
+                <?php endif; ?>
             <?php endif; ?>
-            
         </div>
     </div>
 </div>
