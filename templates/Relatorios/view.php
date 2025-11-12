@@ -16,6 +16,7 @@
                 </div>
             </aside>
             <h3>Relatorio</h3>
+            <span id="clientes" class="hidden"><?= h(json_encode($clientes->toArray())) ?></span>
             <table>
                 <tr>
                     <th><?= __('Id') ?></th>
@@ -68,7 +69,31 @@
                 </tr>
                 <tr>
                     <th><?= __('Consumo Clientes') ?></th>
-                    <td><?= h($relatorio->consumo_clientes) ?></td>
+                    <!-- <td><?= h($relatorio->consumo_clientes) ?></td> -->
+                    <td>
+                        <span class="consumo_parsed"></span>
+                        <span class="consumo"><?= h($relatorio->consumo_clientes) ?></span>
+                        <script>
+                            (function () {
+                                const clientes = document.querySelector('#clientes');
+                                const clientesData = JSON.parse(clientes.textContent);
+                                const parsedClients = {};
+                                for (let key in clientesData) {
+                                    parsedClients[clientesData[key].id] = clientesData[key];
+                                }
+                                const consumo = document.currentScript.previousElementSibling;
+                                const consumoData = new Function('return {'+consumo.textContent+'}')();
+                                let parsedText = [];
+                                for (let clienteId in consumoData) {
+                                    const link = '<a href="clientes/view/' + clienteId + '">' + parsedClients[clienteId].nome + '</a>';
+                                    const text = link + ': ' + consumoData[clienteId];
+                                    parsedText.push(text);
+                                }
+                                consumo.classList.add('hidden');
+                                consumo.previousElementSibling.innerHTML = parsedText.join(', ');
+                            })()
+                        </script>
+                    </td>
                 </tr>
                 <tr>
                     <th><?= __('Dispenser') ?></th>

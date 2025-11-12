@@ -23,14 +23,9 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             <fieldset>
                 <h3><?= __('Adicionando Cliente') ?></h3>
                 <?php
-                    if ($user_data['administrador_id']):
-                        $val = $this->request->getParam('pass') ? $this->request->getParam('pass')[0] : '';
-                        echo $this->Form->control('user_id', ['type' => 'number', 'value' => $val ]); 
-                    else:
-                        echo $this->Form->control('user_id', ['type' => 'number', 'value' => $user_session->get('id'), 'hidden' => true ]); 
-                    endif;
                     echo $this->Form->control('nome');
                     echo $this->Form->control('cpf');
+                    echo $this->Form->control('email');
                     echo $this->Form->control('endereco');
                     echo $this->Form->control('celular');
                     echo $this->Form->control('observacoes');

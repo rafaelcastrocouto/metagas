@@ -26,6 +26,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             <?= $this->Form->create($relatorio) ?>
             <fieldset>
                 <h3><?= __('Editando Relatorio Controle ') . $relatorio->controle ?></h3>
+                <span id="clientes" class="hidden"><?= h(json_encode($clientes->toArray())) ?></span>
                 <?php
                     echo $this->Form->control('user_id', ['type' => 'number', 'value' => $user_session->get('id'), 'hidden' => !$user_data['administrador_id'] ]);
                     echo $this->Form->control('instituicao_id', ['options' => $instituicoes, 'class' => 'form-control']);
@@ -40,6 +41,51 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
                     echo $this->Form->control('volume_biogas_dia');
                     echo $this->Form->control('volume_biogas_mes');
                     echo $this->Form->control('consumo_clientes');
+                ?>    
+                        <h3>Clientes</h3>
+                        <fieldset class="consumo_parsed input"></fieldset>
+                        <span class="consumo"><?= h($relatorio->consumo_clientes) ?></span>
+                        <script>
+                            (function () {
+                                const clientes = document.querySelector('#clientes');
+                                const clientesData = JSON.parse(clientes.textContent);
+                                const parsedClients = {};
+                                for (let key in clientesData) {
+                                    parsedClients[clientesData[key].id] = clientesData[key];
+                                }
+                                const consumo = document.currentScript.previousElementSibling;
+                                const consumoData = new Function('return {'+consumo.textContent+'}')();
+                                let parsedText = [];
+                                for (let clienteId in parsedClients) {
+                                    const labelEl = '<label for="cliente_' + clienteId + '">Cliente ' + parsedClients[clienteId].nome + '</label>';
+                                    const clienteVal = consumoData[clienteId] ? consumoData[clienteId] : 0;
+                                    const inputEl = '<input type="text" name="cliente_' + clienteId + '" value="' + clienteVal + '" class="cliente_input">';
+                                    const text = labelEl + ' ' + inputEl;
+                                    parsedText.push(text);
+                                }
+                                consumo.classList.add('hidden');
+                                const consumo_parsed = consumo.previousElementSibling;
+                                consumo_parsed.innerHTML = parsedText.join('');
+                                const consumo_clientes = consumo_parsed.previousElementSibling.previousElementSibling;
+                                consumo_clientes.classList.add('hidden');
+                                const cliente_inputs = document.querySelectorAll('.cliente_input');
+                                const cliente_update = function (e) {
+                                    const val = [];
+                                    for (let cliente_input of cliente_inputs) {
+                                        if (cliente_input.value && cliente_input.value !== '0') {
+                                            const clienteId = cliente_input.name.split('_')[1];
+                                            val.push(clienteId + ': ' + cliente_input.value);
+                                        }
+                                    }
+                                    console.log(consumo_clientes)
+                                    consumo_clientes.children[1].value = val.join(', ');
+                                };
+                                for (let cliente_input of cliente_inputs) {
+                                    cliente_input.addEventListener('change', cliente_update);
+                                }
+                            })()
+                        </script>
+                <?php
                     echo $this->Form->control('dispenser');
                     echo $this->Form->control('energia');
                     echo $this->Form->control('densidade');

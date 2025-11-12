@@ -31,7 +31,8 @@ class RelatoriosController extends AppController
         $relatorios = $this->paginate($this->Relatorios->find('all', [
             'contain' => ['Users', 'Instituicoes'],
         ]));
-        $this->set(compact('relatorios'));
+        $clientes = $this->fetchTable('Clientes')->find()->all();
+        $this->set(compact('relatorios', 'clientes'));
     }
 
     /**
@@ -46,8 +47,8 @@ class RelatoriosController extends AppController
         $relatorio = $this->Relatorios->get($id, [
             'contain' => ['Users', 'Instituicoes'],
         ]);
-
-        $this->set(compact('relatorio'));
+        $clientes = $this->fetchTable('Clientes')->find()->all();
+        $this->set(compact('relatorio', 'clientes'));
     }
 
     /**
@@ -74,7 +75,8 @@ class RelatoriosController extends AppController
             $this->Flash->error(__('The relatorio could not be saved. Please, try again.'));
         }
         $instituicoes = $this->Relatorios->Instituicoes->find('list');
-        $this->set(compact('relatorio', 'instituicoes'));
+        $clientes = $this->fetchTable('Clientes')->find()->all();
+        $this->set(compact('relatorio', 'instituicoes', 'clientes'));
     }
 
     /**
@@ -99,7 +101,8 @@ class RelatoriosController extends AppController
             $this->Flash->error(__('The relatorio could not be saved. Please, try again.'));
         }
         $instituicoes = $this->Relatorios->Instituicoes->find('list');
-        $this->set(compact('relatorio', 'instituicoes'));
+        $clientes = $this->fetchTable('Clientes')->find()->all();
+        $this->set(compact('relatorio', 'instituicoes', 'clientes'));
     }
 
     /**

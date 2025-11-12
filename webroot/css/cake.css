@@ -201,10 +201,16 @@ th {
 .related {
     margin-top: 2rem;
 }
-.edit fieldset {
+.edit fieldset,
+.add fieldset {
     width: 450px;
+    margin-bottom: 1rem;
 }
-
+.edit fieldset.input,
+.view fieldset.input,
+.add fieldset.input {
+    margin-left: 1rem;
+}
 /* Flash messages */
 .message,
 .error-message {
@@ -386,10 +392,10 @@ footer {
 }
 footer img {
     margin-right: 4em;
-    max-height: 26px;
+    max-height: 22px;
 }
 footer img[alt="CakePHP"] {
-    max-height: 25px;
+    max-height: 20px;
 }
 /*
 @media (prefers-color-scheme: dark) {

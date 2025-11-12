@@ -75,8 +75,14 @@ body .button:active {
     margin-bottom: 1em;
 }
 .content.add .input input,
-.content.add .input select {
+.content.add .input select,
+.content.add .input textarea {
     width: 450px;
+}
+.content.add fieldset.input input,
+.content.add fieldset.input select,
+.content.add fieldset.input textarea {
+    width: calc(450px - 1rem);
 }
 
 
@@ -93,8 +99,6 @@ body .button:active {
   padding: .6rem 1.0rem .7rem;
 }
 input[type='color'],input[type='date'],input[type='datetime'],input[type='datetime-local'],input[type='email'],input[type='month'],input[type='number'],input[type='password'],input[type='search'],input[type='tel'],input[type='text'],input[type='url'],input[type='week'],input:not([type]),textarea,select {
-  =:
-  none;
   background-color: transparent;
   border: 1px solid #d1d1d1;
   border-radius: 4px;
@@ -224,7 +228,8 @@ label,legend {
 footer {
     background: #2b6c9c;
     color: #fff;
-    padding: 10px;
-    =: 100%;
-    box-shadow: 96vw 0 0 0 #2b6c9c;
+    padding: 8px 0 2px;
+    box-shadow: 100vw 0 0 0 #2b6c9c, 0 33px 0 0 #2b6c9c, 100vw 33px 0 0 #2b6c9c;
+    height: 34px;
+    box-sizing: border-box;
 }

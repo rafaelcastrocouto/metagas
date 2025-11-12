@@ -33,6 +33,7 @@ use Cake\ORM\Entity;
  * @property string|null $ch4_media
  * @property string|null $co2_media
  * @property string|null $o2_media
+ * @property string|null $observacoes
  *
  * @property \App\Model\Entity\User[] $users
  * @property \App\Model\Entity\Instituicao[] $instituicoes
@@ -72,6 +73,7 @@ class Abastecimento extends Entity
      'pcs' => true,
      'ch4_media' => true,
      'co2_media' => true,
-     'o2_media' => true
+     'o2_media' => true,
+     'observacoes' => true
     ];
 }
