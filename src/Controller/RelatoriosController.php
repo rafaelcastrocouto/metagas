@@ -41,9 +41,9 @@ class RelatoriosController extends AppController
         
         $this->paginate = ['limit' => 1];  // One month per page
         
-        $mes = $this->paginate($ym);
+        $meses = $this->paginate($ym);
 
-        $currentMonth = $mes->first();
+        $currentMonth = $meses->first();
         
         [$year, $month] = explode('-', $currentMonth->ym);
         
@@ -59,7 +59,7 @@ class RelatoriosController extends AppController
         
         $clientes = $this->fetchTable('Clientes')->find()->all();
         
-        $this->set(compact('relatorios', 'clientes', 'mes'));
+        $this->set(compact('relatorios', 'clientes', 'meses', 'month'));
     }
 
     /**
