@@ -23,7 +23,7 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
     <div class="paginator">
         <?= $this->element('paginator'); ?>
     </div>
-    <div class="table_wrap">
+    <div class="inline-block">
         <table>
             <thead>
                 <tr>

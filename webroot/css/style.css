@@ -240,7 +240,7 @@ footer {
     background: #2b6c9c;
     color: #fff;
     padding: 8px 0 2px;
-    box-shadow: 100vw 0 0 0 #2b6c9c, 0 33px 0 0 #2b6c9c, 100vw 33px 0 0 #2b6c9c;
+    box-shadow: 96vw 0 0 0 #2b6c9c, 0 33px 0 0 #2b6c9c, 96vw 33px 0 0 #2b6c9c;
     height: 34px;
     box-sizing: border-box;
 }

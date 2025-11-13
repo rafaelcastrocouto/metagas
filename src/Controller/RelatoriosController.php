@@ -26,13 +26,40 @@ class RelatoriosController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
+    
     public function index()
     {
-        $relatorios = $this->paginate($this->Relatorios->find('all', [
-            'contain' => ['Users', 'Instituicoes'],
-        ]));
+        $query = $this->Relatorios->find('all');
+
+        $ym = $query
+            ->select([
+                'ym' => 'DATE_FORMAT(Relatorios.data, "%Y-%m")',
+                'volume_biogas_mes' => $query->func()->sum('Relatorios.volume_biogas_dia') 
+            ])
+            ->group(['ym'])
+            ->orderBy(['ym' => 'DESC']);
+        
+        $this->paginate = ['limit' => 1];  // One month per page
+        
+        $mes = $this->paginate($ym);
+
+        $currentMonth = $mes->first();
+        
+        [$year, $month] = explode('-', $currentMonth->ym);
+        
+        $results = $this->Relatorios->find('all')
+            ->where([
+                'YEAR(Relatorios.data)' => $year,
+                'MONTH(Relatorios.data)' => $month,
+            ])
+            ->orderBy(['Relatorios.data' => 'ASC'])
+            ->contain(['Users', 'Instituicoes']);
+        
+        $relatorios = $results;
+        
         $clientes = $this->fetchTable('Clientes')->find()->all();
-        $this->set(compact('relatorios', 'clientes'));
+        
+        $this->set(compact('relatorios', 'clientes', 'mes'));
     }
 
     /**

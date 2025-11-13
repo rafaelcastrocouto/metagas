@@ -102,8 +102,10 @@ h2.label {
 /* Utility */
 table {
     border-collapse: collapse;
-    width: 100%;
-    border-right: 1rem solid transparent;
+    margin-right: 1rem;
+    box-sizing: border-box;
+    border: 1px solid var(--color-lightgray);
+    width: calc(100vw - 2rem)
 }
 table p {
     margin: 0;
@@ -113,8 +115,6 @@ table td, table th {
     white-space:nowrap;
     text-align: center;
     border: 1px solid var(--color-lightgray);
-    border-left-color: #ddd;
-    border-right-color: #ddd;
     border-width: 1px;
 }
 table th {
@@ -149,6 +149,9 @@ table td:last-child {
     white-space: normal;
 }
 /* Main */
+.inline-block {
+    display: inline-block;
+}
 .content {
     padding: 1rem;
 }

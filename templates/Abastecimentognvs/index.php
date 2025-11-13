@@ -12,7 +12,7 @@
     <div class="paginator">
         <?= $this->element('paginator'); ?>
     </div>
-    <div>
+    <div class="inline-block">
         <table>
             <thead>
                 <tr>

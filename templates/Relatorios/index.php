@@ -12,7 +12,13 @@
     <div class="paginator">
         <?= $this->element('paginator'); ?>
     </div>
-    <div>
+    
+    <?php
+        //pr($mes->toArray());
+        //die();
+    ?>
+    
+    <div class="inline-block">
         <span id="clientes" class="hidden"><?= h(json_encode($clientes->toArray())) ?></span>
         <table>
             <thead>
@@ -32,9 +38,6 @@
                 </tr>
                 <tr>
                     <th class="actions"><?= __('Ações') ?></th>
-                    <!-- <th><?= $this->Paginator->sort('id') ?></th> -->
-                    <!-- <th><?= $this->Paginator->sort('user_id') ?></th> -->
-                    <!-- <th><?= $this->Paginator->sort('instituicao_id') ?></th> -->
                     <th><?= $this->Paginator->sort('data') ?></th>
                     <th><?= $this->Paginator->sort('ch4_media_biogas', '% CH4 MÉDIA') ?></th>
                     <th><?= $this->Paginator->sort('co2_media_biogas', '% CO2 MÉDIA') ?></th>
@@ -63,9 +66,6 @@
                         <?= $this->Html->link(__('✏️'), ['action' => 'edit', $relatorio->id]) ?>
                         <?= $this->Form->postLink(__('❌'), ['action' => 'delete', $relatorio->id], ['confirm' => __('Tem certeza que deseja deletar o relatorio {0}?', $relatorio->data)]) ?>
                     </td>
-                    <!-- <td><?= $this->Html->link((string)$relatorio->id, ['action' => 'view', $relatorio->id]) ?></td> -->
-                    <!-- <td><?= $this->Html->link($relatorio->user->nome, ['controller' => 'users', 'action' => 'view', $relatorio->user->id]) ?></td> -->
-                    <!-- <td><?= $this->Html->link($relatorio->instituicao->nome, ['controller' => 'instituicoes', 'action' => 'view', $relatorio->instituicao->id]) ?></td> -->
                     <td><?= h($relatorio->data) ?></td>
                     <td><?= h($relatorio->ch4_media_biogas) ?></td>
                     <td><?= h($relatorio->co2_media_biogas) ?></td>
@@ -102,7 +102,7 @@
                                     sum += Number(consumoData[clienteId]) || 0;
                                 }
                                 consumo.classList.add('hidden');
-                                consumo.previousElementSibling.innerHTML = parsedText.join(', ');
+                                consumo.previousElementSibling.innerHTML = parsedText.join(' | ');
                                 const volume_dia = document.currentScript.parentElement.querySelector('.td_volume_total_dia');
                                 volume_dia.textContent = sum;
                             })()
@@ -113,6 +113,18 @@
                     <!-- <td><?= h($relatorio->observacoes) ?></td> -->
                 </tr>
                 <?php endforeach; ?>
+                <tr>
+                    <th colspan="3"></th>
+                    <th colspan="2">CH4 MÉDIO DO MÊS (%)</th>
+                    <th colspan="1">media acima</th>
+                    <th colspan="2">MEDIA ATUAL (m³/dia)</th>
+                    <th colspan="1">media cliente 1</th>
+                    <th colspan="2">FECHAMENTO ESPERADO PARA O MÊS (M3)</th>
+                    <th colspan="1">media * 30</th>
+                    <th colspan="1">DISPENSER MÊS (M3): total acima</th>
+                    <th colspan="2">CONSUMO DE ENERGIA ACUMULADO NO MÊS (MW)</th>
+                    <th colspan="1">media acima</th>
+                </tr>
             </tbody>
         </table>
     </div>
