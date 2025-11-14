@@ -17,7 +17,6 @@ if ($user_session) { $user_data = $user_session->getOriginalData(); }
             if (inputBox !== event.target) unselect(inputBox) 
         })};
         addEventListener('mouseup', unselectAll);
-        addEventListener('touchend', unselectAll);
     });
 </script>
     

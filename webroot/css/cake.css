@@ -398,7 +398,6 @@ footer {
     padding: 1em;
 }
 footer img {
-    margin-right: 4em;
     max-height: 22px;
 }
 footer img[alt="CakePHP"] {

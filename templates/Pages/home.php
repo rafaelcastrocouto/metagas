@@ -76,7 +76,6 @@ $user_session = $this->request->getAttribute('identity');
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-
 </head>
 <body>
     
@@ -89,7 +88,6 @@ $user_session = $this->request->getAttribute('identity');
                 <div class="col">
                     <h1 class="text-center">Boas vindas ao <?= $this->Html->link('Metagas CMS', '/',['full'=>true]); ?></h1>
                     <h2 class="text-center">
-                            
                         <?php if (!$user_session) : ?>
                             <?= $this->Html->link(__('Login'), ['controller' => 'users', 'action' => 'login'], ['class' => 'button btn-info']) ?>
                             <?= $this->Html->link(__('Novo usuário'), ['controller' => 'users', 'action' => 'add'], ['class' => 'button']) ?>
@@ -107,7 +105,7 @@ $user_session = $this->request->getAttribute('identity');
                         <p>Estamos à disposição.</p>
                     </div>
                     <div class="col">
-                        <img src="img/metabkg.jpg" width="450" class="rounded">
+                        <img src="img/metabkg.jpg" width="350" class="rounded">
                     </div>
                 </div>
             </div>

@@ -242,6 +242,10 @@ footer {
     padding: 8px 0 2px;
     height: 36px;
     box-sizing: border-box;
-    border-radius: 0 40px 0 0;
-    box-shadow: 0 36px 0 0 #2b6c9c;
+    box-shadow: 0 16px 0 0 #2b6c9c;
+}
+footer a {
+    display: inline-block;
+    width: 40px;
+    margin: 0 1rem;
 }

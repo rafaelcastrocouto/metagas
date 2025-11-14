@@ -74,24 +74,33 @@
                     <td><?= h($relatorio->co2_media_metano) ?></td>
                     <td><?= h($relatorio->o2_media_metano) ?></td>
                     <td><?= h($relatorio->n2_media_metano) ?></td>
-                    <td><?= h($relatorio->volume_biogas_dia) ?></td>
-                    <td>volume_biogas_mes todo sum</td>
+                    <td class="td_volume_biogas_dia"><?= h($relatorio->volume_biogas_dia) ?></td>
+                    <td class="td_volume_biogas_mes"></td>
                     <td class="td_consumo">
                         <span class="consumo_parsed"></span>
                         <span class="consumo"><?= h($relatorio->consumo_clientes) ?></span>
                     </td>
                     <td class="dispenser"><?= h($relatorio->dispenser) ?></td>
                     <td class="td_volume_total_dia"></td>
-                    <td>volume_total_mes todo sum</td>
+                    <td class="td_volume_total_mes"></td>
                         <script>
                             (function () {
+                                const parent = document.currentScript.parentElement;
+                                const volume_biogas_dia = parent.querySelector('.td_volume_biogas_dia');
+                                const volume_biogas_mes = parent.querySelector('.td_volume_biogas_mes');
+                                const previous_tr = parent.previousElementSibling;
+                                if (!previous_tr) volume_biogas_mes.textContent = volume_biogas_dia.textContent;
+                                else {
+                                    const previous_td = previous_tr.querySelector('.td_volume_biogas_mes');
+                                    volume_biogas_mes.textContent = Number(previous_td.textContent) + Number(volume_biogas_dia.textContent);
+                                }
                                 const clientes = document.querySelector('#clientes');
                                 const clientesData = JSON.parse(clientes.textContent);
                                 const parsedClients = {};
                                 for (let key in clientesData) {
                                     parsedClients[clientesData[key].id] = clientesData[key];
                                 }
-                                const consumo = document.currentScript.parentElement.querySelector('.td_consumo .consumo');
+                                const consumo = parent.querySelector('.td_consumo .consumo');
                                 const consumoData = new Function('return {'+consumo.textContent+'}')();
                                 let parsedText = [];
                                 let sum = 0;
@@ -103,8 +112,14 @@
                                 }
                                 consumo.classList.add('hidden');
                                 consumo.previousElementSibling.innerHTML = parsedText.join(' | ');
-                                const volume_dia = document.currentScript.parentElement.querySelector('.td_volume_total_dia');
+                                const volume_dia = parent.querySelector('.td_volume_total_dia');
+                                const volume_mes= parent.querySelector('.td_volume_total_mes');
                                 volume_dia.textContent = sum;
+                                if (!previous_tr) volume_mes.textContent = volume_dia.textContent;
+                                else {
+                                    const previous_td = previous_tr.querySelector('.td_volume_total_mes');
+                                    volume_mes.textContent = Number(previous_td.textContent) + Number(volume_dia.textContent);
+                                }
                             })()
                         </script>
                     <td class="energia"><?= h($relatorio->energia) ?></td>
@@ -130,11 +145,11 @@
                             }
                             const ch4_media_metano = document.querySelectorAll('.ch4_media_metano');
                             const media_metano = sum(ch4_media_metano) / ch4_media_metano.length;
-                            document.querySelector('#ch4_media_metano_sum').textContent = media_metano;
+                            document.querySelector('#ch4_media_metano_sum').textContent = media_metano.toFixed(2);
                             
                             const dado_media_cliente_1 = document.querySelectorAll('.dado_media_cliente_1');
                             const media_cliente = sum(dado_media_cliente_1) / dado_media_cliente_1.length;
-                            document.querySelector('#media_cliente').textContent = media_cliente;
+                            document.querySelector('#media_cliente').textContent = media_cliente.toFixed(2);
                             
                             document.querySelector('#esperado').textContent = media_cliente * 30;
                             
